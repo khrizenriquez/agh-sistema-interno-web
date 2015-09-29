@@ -3,3 +3,7 @@
 .env
 .env.*.php
 .env.php
+
+#images
+/images/.*png
+/images/.*jpg
