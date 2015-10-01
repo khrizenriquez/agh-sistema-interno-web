@@ -14,13 +14,25 @@ class User extends Model {
         }
 
         $u = User::where('user_name', '=', $user)->get()->first();
-        return var_dump(\Hash::check($password, $u->password));
         if (\Hash::check($password, $u->password)) {
             $_SESSION['agh-user'] = $u;
             return 1;
         } 
 
         return 2;
+    }
+
+    public static function logOut () {
+        if (!isset($_SESSION['agh-user'])) {
+            $result = ['Result'     => 'OK', 
+                        'Message'   => 'No hay sesión iniciada'];
+            return $result;
+        }
+
+        unset($_SESSION['agh-user']);
+        $result = ['Result'     => 'OK', 
+                    'Message'   => 'Sesión cerrada con éxito'];
+        return $result;
     }
 
     public static function countUsersWEmail ($email) {

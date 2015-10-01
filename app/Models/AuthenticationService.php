@@ -17,7 +17,7 @@ class AuthenticationService {
                     return json_encode(SiteService::MissingParameters());
                 }
             case 'logout':
-                return User::logOut();
+                return json_encode(User::logOut());
             break;
             case 'login':
                 extract($parameters);

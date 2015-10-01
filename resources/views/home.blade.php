@@ -30,4 +30,6 @@
 	<div>Ut, id doloremque quibusdam neque ea architecto laudantium corporis, facilis illo, praesentium eius tempore ex natus corrupti nemo cupiditate delectus, iusto ipsum repudiandae suscipit inventore rerum a consequuntur. Earum, nisi!</div>
 @stop
 @section('scripts')
+<script src="/js/protos/login.js"></script>
+<script src="/js/login.js"></script>
 @stop
