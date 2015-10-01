@@ -11,7 +11,7 @@ class PageController extends Controller {
      function __construct() {
         date_default_timezone_set('America/Guatemala');
         session_start();
-        //$parameters = SecurityController::mergeParameters();
+        $parameters = SecurityController::mergeParameters();
     }
 
     function getPage($page) {
@@ -19,17 +19,14 @@ class PageController extends Controller {
 
         switch ($page) {
             case 'inicio':
-                return view('home');
-                //$params['page']['front_recipe']=$recipe_service->getFrontRecipe();
-                //$params['page']['most_used_recipe']=$recipe_service->getMostUsedRecipe()['Data'];
-               
-                
-                if (User::isLogged()) {
+                return (User::isLogged()) ? view('home'): view('login');
+
+                /*if (User::isLogged()) {
                     $user = User::getUser($_SESSION['ina_user']['id']);
                     return view('home', array('user' => $user))->with($params);
                 } else {
                     return view('home')->with($params);
-                }
+                }*/
             break;/*
             case 'perfil':
                 if (User::isLogged()) {

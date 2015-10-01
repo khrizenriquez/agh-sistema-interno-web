@@ -21,53 +21,40 @@ class AuthenticationService {
             break;
             case 'login':
                 extract($parameters);
-                $email      = $user;
                 $password   = $pass;
-                $login      = User::loginNormal($email, $password);
+                //  Válido que el correo exista en la base de datos
+                if ($this->usernameExists($user)) {
+                    $login = User::loginNormal($user, $password);
 
-                return json_encode($login);
-
-                return json_encode($this->processLoginResult($login));
-            case 'register':
-                $email = $parameters['email'];
-                $password = $parameters['password'];
-                $fid = (isset($parameters['fbid'])) ? $parameters['fbid'] : -1;
-                $name = $parameters['name'];
-                $phone = $parameters['phone'];
-                $state = $parameters['state'];
-                if (User::getSessionUserType() == User::getINAUser()) {
-                    return json_encode($this->registerINAUser($email, $password, $fid, $name, $phone, $state));
-                } else if (User::getSessionUserType() == User::getStoreUser()) {
-                    $store = $parameters['store'];
-                    return json_encode($this->registerStoreUser($email, $password, $fid, $name, $phone, $state, $store));
-                } else {
-                    return json_encode($this->registerNormalUser($email, $password, $fid, $name, $phone, $state));
+                    return json_encode($this->processLoginResult($login));
                 }
+
+                $result = ['Result'     =>'ERROR', 
+                            'Message'   => 'El correo electrónico no existe'];
+                return $result;
+
+            break;
             case 'password-recovery':
                 $email = $parameters['email'];
-                
+            break;
             default:
-                $result = array();
+                $result = [];
                 $result['Result'] = 'ERROR';
                 $result['Message'] = 'Acción no definida';
                 return json_encode($result);
         }
     }
-    public function emailExists($email){
-        $result = array();
-        if(User::countUsersWEmail($email)>0){
-            $result['Result'] = 'ERROR';
-            $result['Message'] = 'Ya existe un usuario con ese correo electrónico';
-        }else{
-            $result['Result'] = 'OK';
-            $result['Message'] = 'Puede registrarse con ese correo electrónico';
-        }
-        return $result;
+    public function emailExists ($email) {
+        return (User::countUsersWEmail($email) > 0) ? true: false;
+    }
+
+    public function usernameExists ($username) {
+        return (User::countUsers($username) > 0) ? true: false;
     }
 
     public function processLoginResult($loginResult) {
-        $result = array();
-        switch ($loginResult){
+        $result = [];
+        switch ($loginResult) {
             case 1:
                 $result['Result'] = 'OK';
                 $result['Message'] = 'Se ha logeado exitosamente';
@@ -85,21 +72,6 @@ class AuthenticationService {
                 $result['Message'] = 'El correo electrónico no existe';
                 break;
         }
-        return $result;
-    }
-
-    public function registerNormalUser($email, $password, $fbid, $name, $phone, $state) {
-        $result = $this->processLoginResult(User::register($name, $email, $password, $phone, $state, User::getNormalUser(), $fbid));
-        return $result;
-    }
-
-    public function registerStoreUser($email, $password, $fbid, $name, $phone, $state, $store) {
-        $result = $this->processLoginResult(User::register($name, $email, $password, $phone, $state, User::getStoreUser(), $fbid, $store));
-        return $result;
-    }
-
-    public function registerINAUser($email, $password, $fbid, $name, $phone, $state) {
-        $result = $this->processLoginResult(User::register($name, $email, $password, $phone, $state, User::getINAUser(), $fbid));
         return $result;
     }
 

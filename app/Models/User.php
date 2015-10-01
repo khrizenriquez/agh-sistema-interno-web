@@ -8,21 +8,30 @@ class User extends Model {
 
     protected $table = 'user';
 
-    public static function loginNormal ($email, $password) {
-        if (User::countUsersWEmail($email) > 0) {
-            $user = User::where('email', '=', $email)->get()->first();
-            if (Hash::check($password, $user->password)) {
-                $_SESSION['agh-user'] = $user;
-                return 1;
-            } else {
-                return 2;
-            }
-        } else {
+    public static function loginNormal ($user, $password) {
+        if (User::countUsers($user) <= 0) {
             return 4;
         }
+
+        $u = User::where('user_name', '=', $user)->get()->first();
+        return var_dump(\Hash::check($password, $u->password));
+        if (\Hash::check($password, $u->password)) {
+            $_SESSION['agh-user'] = $u;
+            return 1;
+        } 
+
+        return 2;
     }
 
     public static function countUsersWEmail ($email) {
         return User::where('email', '=', $email)->get()->count();
+    }
+
+    public static function countUsers ($username) {
+        return User::where('user_name', '=', $username)->get()->count();
+    }
+
+    public static function isLogged () {
+        return (isset($_SESSION['agh-user'])) ? true: false;
     }
 }

@@ -8,14 +8,17 @@ var User = function () {};
 *cb: (callback) function to do something
 */
 User.prototype.login = function(username, password, cb) {
-	let obj = {};
 	var r = $.post('/services/auth', {
 		user: username,
 		pass: password,
 		action: 'login'
 	}, function () {}, 'json');
-	r.done(function (response) {});
-	r.fail(function (response) {});
+	r.done(function (response) {
+		return cb(response);
+	});
+	r.fail(function (error) {
+		console.error(error);
+	});
 };
 
 User.prototype.logout = function () {
