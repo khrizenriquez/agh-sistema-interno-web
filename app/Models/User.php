@@ -1,40 +1,28 @@
 <?php 
+namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Model {
 
     protected $table = 'user';
 
-    public function setUser ($userName, $password, $createdAt, $updatedAt, $userTypeId, $userStatus = 1) {
-        $user = new User();
-
-        return $user;
-    }
-    public function getUser ($userId) {}
-
-    public function setUserPassword ($password) {
-        $newPassword = Hash::make($password);
-
-        return $newPassword;
-    }
-    public function getUserPassword ($userId) {
-        return "";
+    public static function loginNormal ($email, $password) {
+        if (User::countUsersWEmail($email) > 0) {
+            $user = User::where('email', '=', $email)->get()->first();
+            if (Hash::check($password, $user->password)) {
+                $_SESSION['agh-user'] = $user;
+                return 1;
+            } else {
+                return 2;
+            }
+        } else {
+            return 4;
+        }
     }
 
-    public function updateUser (userId, $parameters) {}
-    
-    public function setUserType () {
-        return true;
-    }
-    
-    public function getUserByPassword ($username, $password) {
-        static::where('user', '=', $username)
-                ->where('password', '=', $password)
-                ->first()
-                ->get();
-
-    }
-    public function getUserType () {
-        return 1;
+    public static function countUsersWEmail ($email) {
+        return User::where('email', '=', $email)->get()->count();
     }
 }

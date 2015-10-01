@@ -21,7 +21,11 @@ class AuthenticationService {
             break;
             case 'login':
                 extract($parameters);
+                $email      = $user;
+                $password   = $pass;
                 $login      = User::loginNormal($email, $password);
+
+                return json_encode($login);
 
                 return json_encode($this->processLoginResult($login));
             case 'register':
