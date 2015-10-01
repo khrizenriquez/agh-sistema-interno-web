@@ -6,8 +6,8 @@ use App\Libs\htmlpurifier\HTMLPurifier;
 
 class SecurityController extends Controller {
 
-    public static function purifyArray($array, $htmlAllowed) {
-        $resultado = array();
+    public static function purifyArray ($array, $htmlAllowed) {
+        $resultado = [];
         foreach ($array as $key => $value) {
             $resultado[static::purifyParameter($key, false)] = (is_array($value)) ? static::purifyArray($value, $htmlAllowed) : static::purifyParameter($value, $htmlAllowed);
         }

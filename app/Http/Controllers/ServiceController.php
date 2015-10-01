@@ -15,24 +15,14 @@ class ServiceController extends Controller {
         $parameters = SecurityController::mergeParameters();
     }
 
-    function getService($servicename) {
+    public function getService($servicename) {
         $parameters = SecurityController::mergeParameters();
         switch ($servicename) {
-            case 'country':
-                $service = new SiteService();
-                break;
-            case 'state':
-                $service = new SiteService();
-                break;
             case 'auth':
                 $service = new AuthenticationService();
-                break;
-            case 'recipe':
-                $service = new RecipeService();
-                break;
-            case 'favorites':
-                $service = new FavoriteRecipesService();
-                break;
+                return $service->execute($parameters);
+                //return $service->execute(SecurityController::purifyArray($parameters,false));
+            break;
             default:
                 $result = ['Result' => 'ERROR', 'Message' => 'Servicio no definido'];
                 break;
