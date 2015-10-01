@@ -21,6 +21,14 @@ User.prototype.login = function(username, password, cb) {
 	});
 };
 
-User.prototype.logout = function () {
-	console.log('logout');
+User.prototype.logout = function (cb) {
+	var r = $.post('/services/auth', {
+		action: 'logout'
+	}, function () {}, 'json');
+	r.done(function (response) {
+		return cb(response);
+	});
+	r.fail(function (error) {
+		console.error(error);
+	});
 };

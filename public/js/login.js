@@ -26,8 +26,17 @@ $(function () {
 	function login (response) {
 		if (response.Result == 'OK') {
 			window.location.reload();
+			return;
 		}
-		return alert(response.Message);
+		alert(response.Message);
+		return;
 	}
 });
+function logout () {
+	var u = new User();
+	u.logout(function () {
+		window.location.reload();
+		return;
+	});
+}
 
