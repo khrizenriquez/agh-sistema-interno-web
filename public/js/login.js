@@ -8,7 +8,6 @@ $(function () {
 	$('#form-login').idealforms({
 	  	onSubmit: function (invalid, e) {
 		    e.preventDefault();
-		    e.stopPropagation();
 
 		    if (!invalid) {
 		    	var user = document.getElementById('email').value;
@@ -20,7 +19,7 @@ $(function () {
 		    return;
 		}, rules: {
 			'email': 'required email',
-		    'pass': 'required password'
+		    'pass': 'required pass'
 	  	}
 	});
 

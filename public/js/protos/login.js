@@ -9,7 +9,7 @@ var User = function () {};
 */
 User.prototype.login = function(username, password, cb) {
 	let obj = {};
-	var r = $.get('/services/auth', {
+	var r = $.post('/services/auth', {
 		user: username,
 		pass: password,
 		action: 'login'
