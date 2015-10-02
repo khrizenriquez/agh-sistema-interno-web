@@ -29,6 +29,7 @@
 	<div>Fuga quod fugit nam, necessitatibus sunt quia, eos ab perferendis. Aspernatur voluptas maxime dignissimos, commodi laboriosam fuga, porro, pariatur tenetur autem deserunt error officia aliquid ab sapiente. Minus dolor, ad.</div>
 	<div>Ut, id doloremque quibusdam neque ea architecto laudantium corporis, facilis illo, praesentium eius tempore ex natus corrupti nemo cupiditate delectus, iusto ipsum repudiandae suscipit inventore rerum a consequuntur. Earum, nisi!</div>
 @stop
+
 @section('scripts')
 <script src="/js/protos/login.js"></script>
 <script src="/js/login.js"></script>
