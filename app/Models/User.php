@@ -46,4 +46,13 @@ class User extends Model {
     public static function isLogged () {
         return (isset($_SESSION['agh-user'])) ? true: false;
     }
+
+    public static function getUser ($userId = null) {
+        $uId = $userId;
+        if (is_null($userId) || !isset($userId)) {
+            $uId = (User::isLogged()) ? $_SESSION['agh-user']['id'] : 0;
+        }
+
+        return User::find($uId);
+    }
 }
