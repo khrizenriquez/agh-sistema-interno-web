@@ -28,34 +28,31 @@ class PageController extends Controller {
                 } else {
                     return view('home')->with($params);
                 }*/
-            break;/*
+            break;
             case 'perfil':
-                if (User::isLogged()) {
-                    $user = User::getUser($_SESSION['ina_user']['id']);
-                    $user_ext = User::join("state","state.id","=","user.state_id")->join("country","country.id","=","state.country_id")->where("user.id","=",$_SESSION['ina_user']['id'])->get(array("country.phone_ext"))->first();
-                    $params['page']['ext']=$user_ext->phone_ext;
-                    return view('profile', array('user' => $user))->with($params);
-                } else {
+                if (!User::isLogged()) {
                     return redirect('/inicio');
                 }
+                return print var_dump(User::getUser());
+                /*$user = User::getUser($_SESSION['ina_user']['id']);
+                $user_ext = User::join("state","state.id","=","user.state_id")->join("country","country.id","=","state.country_id")->where("user.id","=",$_SESSION['ina_user']['id'])->get(array("country.phone_ext"))->first();
+                $params['page']['ext']=$user_ext->phone_ext;
+                return view('profile', array('user' => $user))->with($params);*/
             break;
-            case 'recetas':
-                if (User::isLogged()) {
-                    $user = User::getUser($_SESSION['ina_user']['id']);
-                    return view('listofrecipes', array('user' => $user))->with($params);
-                } else {
-                    return view('listofrecipes')->with($params);
+            case 'catalogos':
+                if (!User::isLogged()) {
+                    return redirect('/inicio');
                 }
+                return print var_dump('catalogos');
             break;
-            case 'receta':
-                if (User::isLogged()) {
-                    $user = User::getUser($_SESSION['ina_user']['id']);
-                    return view('recipe', array('user' => $user))->with($params);
-                } else {
-                    return view('recipe')->with($params);
+            case 'pacientes':
+                if (!User::isLogged()) {
+                    return redirect('/inicio');
                 }
-            break;*/
-            default: break;
+                return print var_dump('pacientes');
+            break;
+            default: 
+            break;
 
         }
     }
