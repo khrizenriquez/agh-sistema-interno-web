@@ -15,8 +15,6 @@ $app->get('/', [
 	'as' => 'home', 'uses' => 'PageController@getLanding'
 ]);
 
-$app->get('/{page}', [
-	'as' => 'home', 'uses' => 'PageController@getPage'
-]);
+$app->get('{page}', 'PageController@getPage');
 
 $app->post('services/{servicename}','ServiceController@getService');
