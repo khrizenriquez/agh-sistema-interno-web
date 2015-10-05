@@ -12,7 +12,13 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div>
-					<a href="">Catálogos</a>
+					<a href="/catalogos">Catálogos</a>
+				</div>
+				<div>
+					<a href="/perfil">Perfil</a>
+				</div>
+				<div>
+					<a href="/pacientes">Pacientes</a>
 				</div>
 			</div>
 		</div>
