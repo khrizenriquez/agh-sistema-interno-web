@@ -1,0 +1,3 @@
+<div>
+	Tipos enfermedades
+</div>
