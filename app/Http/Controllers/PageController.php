@@ -43,7 +43,7 @@ class PageController extends Controller {
                 if (!User::isLogged()) {
                     return redirect('/inicio');
                 }
-                return print var_dump('catalogos');
+                return view('catalogs');
             break;
             case 'pacientes':
                 if (!User::isLogged()) {
