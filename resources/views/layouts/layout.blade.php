@@ -14,6 +14,7 @@
 
     <!-- Dropdown.js -->
     <!-- <link rel="stylesheet" href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" /> -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="/styles/home.css" />
     @yield('styles')
