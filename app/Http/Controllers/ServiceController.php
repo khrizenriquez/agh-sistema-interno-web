@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\AuthenticationService;
+use App\Models\CatalogsService;
 
 use App\Models\User;
 
@@ -22,6 +23,10 @@ class ServiceController extends Controller {
                 $service = new AuthenticationService();
                 return $service->execute($parameters);
                 //return $service->execute(SecurityController::purifyArray($parameters,false));
+            break;
+            case 'catalogs':
+                $service = new CatalogsService();
+                return $service->execute($parameters);
             break;
             default:
                 $result = ['Result' => 'ERROR', 'Message' => 'Servicio no definido'];
