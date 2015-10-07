@@ -2,7 +2,7 @@
 /bootstrap/compiled.php
 .env
 .env.*.php
-.env.php
+#.env.php
 
 #images
 /images/.*png
