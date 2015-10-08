@@ -15,12 +15,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-md-2">
-				<ul class="nav nav-pills nav-stacked" ng-controller="DepartmentsCtrl">
+				<ul class="nav nav-pills nav-stacked" ng-controller="HeaderCtrl">
 				  	<li role="presentation" class="active">
 				  		<a href="#/departamentos">Departamentos</a>
 				  	</li>
 				  	<li role="presentation">
-				  		<a href="#/">Municipios</a>
+				  		<a href="#/municipios">Municipios</a>
 				  	</li>
 				  	<li role="presentation">
 				  		<a href="#/">Tipos de responsable</a>
@@ -40,5 +40,6 @@
 @section('scripts')
 <script src="/js/vendor/angularJS/angular.min.js"></script>
 <script src="/js/vendor/angularJS/angular-route.min.js"></script>
-<script src="/js/catalogs.js"></script>
+<script src="/js/models/catalogsService.js"></script>
+<script src="/js/controllers/catalogsController.js"></script>
 @stop
