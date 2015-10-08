@@ -13,12 +13,12 @@ class Department extends Model {
     }
 
     public static function getAllDepartments () {
-        $model = Department::orderBy('id', 'desc')
+        $model = Department::orderBy('id', 'asc')
                             ->get(['created_at', 'updated_at', 'name', 'id']);
         return $model;
     }
 
-    public static function getTowns ($departmentId) {
+    public static function getTownsByDeparment ($departmentId) {
         $departments = Department::join('town', 'town.fk_town_department', '=', $departmentId)
                                     //->where('active', '=', '1')
                                     ->get();

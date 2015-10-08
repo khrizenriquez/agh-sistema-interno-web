@@ -1,6 +1,5 @@
 
-
-<div class="panel panel-primary">
+<div class="panel panel-primary" ng-controller="DepartmentsCtrl">
     <div class="panel-heading">
         <h3 class="panel-title">Panel primary</h3>
     </div>
@@ -29,73 +28,12 @@
 		            <th>Nombre departamento</th>
 		        </tr>
 		    </thead>
-		    <tbody>
+		    <tbody ng-repeat="department in allDepartments">
 		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
-		        </tr>
-		        <tr>
-		            <td>Nombre departamento</td>
-		            <td>Column content</td>
+		            <td>{{ department.id }}</td>
+		            <td>{{ department.name }}</td>
 		        </tr>
 		    </tbody>
 		</table>
     </div>
 </div>
-
