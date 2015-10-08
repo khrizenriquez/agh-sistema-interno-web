@@ -20,7 +20,10 @@ class CatalogsService {
                                 'Message'   => 'No esta loguedo'];
                 }
 
-                return json_encode(Department::getAllDepartments());
+                $result['Result']   = Department::getAllDepartments();
+                $result['Message']  = 'OK';
+
+                return $result;
             break;
             case 'department_create':
                 if(isset($parameters['email'])){
