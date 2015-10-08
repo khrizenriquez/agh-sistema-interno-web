@@ -46,6 +46,18 @@ class CatalogsService {
                     return json_encode(SiteService::MissingParameters());
                 }
             break;
+            case 'town_list':
+                $result = [];
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+
+                $result['Result']   = Town::getAllTowns();
+                $result['Message']  = 'OK';
+
+                return $result;
+            break;
             default:
                 $result = [];
                 $result['Result'] = 'ERROR';
