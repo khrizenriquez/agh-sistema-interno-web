@@ -8,12 +8,13 @@ class Department extends Model {
     protected $table        = 'department';
     protected $timestamp    = false;
 
-    public static function getTotalDepartments () {
+    public static function getTotal () {
         return Department::all()->count();
     }
 
     public static function getAllDepartments () {
-        $model = Department::orderBy('id', 'asc')
+        $model = Department::where('status', '=', 1)
+                            ->orderBy('id', 'asc')
                             ->get(['created_at', 'updated_at', 'name', 'id']);
         return $model;
     }
