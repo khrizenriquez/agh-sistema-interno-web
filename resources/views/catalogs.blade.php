@@ -23,10 +23,10 @@
 				  		<a href="#/municipios">Municipios</a>
 				  	</li>
 				  	<li role="presentation">
-				  		<a href="#/">Tipos de responsable</a>
+				  		<a href="#/responsables">Tipos de responsable</a>
 				  	</li>
 				  	<li role="presentation">
-				  		<a href="#/">Tipos de enfermedades</a>
+				  		<a href="#/enfermedades">Tipos de enfermedades</a>
 				  	</li>
 				</ul>
 			</div>

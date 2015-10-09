@@ -45,7 +45,7 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 
 
 		/*	responsible routes*/
-		.when('/municipios', {
+		.when('/responsables', {
 			templateUrl: '/html/parts/catalogs/responsible.html',
 			controller: 'ResponsibleCtrl'
 		})
@@ -53,7 +53,7 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 
 
 		/*	disease routes*/
-		.when('/municipios', {
+		.when('/enfermedades', {
 			templateUrl: '/html/parts/catalogs/disease.html',
 			controller: 'DiseaseCtrl'
 		})
