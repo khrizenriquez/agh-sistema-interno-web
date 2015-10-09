@@ -1,7 +1,9 @@
 'use strict';
 
 var AllDepartments 	= angular.module('AllDepartments', []);
-var AllTowns 		= angular.module('AllTowns', []);
+var AllTowns        = angular.module('AllTowns', []);
+var AllResponsibles = angular.module('AllResponsibles', []);
+var AllDiseases 	= angular.module('AllDiseases', []);
 
 AllDepartments.factory('allDepartmentsData', function ($http) {
 	var obj 	= {};
@@ -19,28 +21,41 @@ AllDepartments.factory('allDepartmentsData', function ($http) {
 });
 
 AllTowns.factory('allTownsData', function ($http) {
-	var obj 	= {};
-	var objs 	= {
-        	action: 'town_list'
+    var obj     = {};
+    var objs    = {
+            action: 'town_list'
         };
 
     obj.getAllTowns = function () {
         return $http.post('/services/catalogs', $.param(objs));
     }
 
+    return obj;
+});
+
+AllResponsibles.factory('allResponsiblesData', function ($http) {
+    var obj     = {};
+    var objs    = {
+            action: 'responsible_list'
+        };
+
+    obj.getAllResponsibles = function () {
+        return $http.post('/services/catalogs', $.param(objs));
+    }
+
+    return obj;
+});
+
+AllDiseases.factory('allDiseaseData', function ($http) {
+	var obj 	= {};
+	var objs 	= {
+        	action: 'disease_list'
+        };
+
+    obj.getAllDisease = function () {
+        return $http.post('/services/catalogs', $.param(objs));
+    }
+
  	return obj;
 });
 
-/*PuchamonService.factory("PuchamonDetail", function ($http) {
-	var obj = {};
-
-    obj.puchamonDetail = function (puchamonNumber) {
-    	var pokeUrl = 'http://pokeapi.co/api/v1/pokemon/';
-
-    	return $http.get(pokeUrl + parseInt(puchamonNumber));
-    }
-
-    obj.returnToListView = function () {};
-
- 	return obj;
-});*/

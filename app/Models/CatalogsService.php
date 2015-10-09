@@ -82,8 +82,8 @@ class CatalogsService {
 
 
 
-            /*      RESPONSIBLES*/
-            case 'responsible_list':
+            /*      DISEASE*/
+            case 'disease_list':
                 $result = [];
                 if (!User::isLogged()) {
                     $result = ['Result'     => 'ERROR', 
