@@ -16,16 +16,16 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-2">
 				<ul class="nav nav-pills nav-stacked" ng-controller="HeaderCtrl">
-				  	<li role="presentation" class="active">
+				  	<li role="presentation" ng-class="{active: nav.isActive('/departamentos')}">
 				  		<a href="#/departamentos">Departamentos</a>
 				  	</li>
-				  	<li role="presentation">
+				  	<li role="presentation" ng-class="{active: nav.isActive('/municipios')}">
 				  		<a href="#/municipios">Municipios</a>
 				  	</li>
-				  	<li role="presentation">
+				  	<li role="presentation" ng-class="{active: nav.isActive('/responsables')}">
 				  		<a href="#/responsables">Tipos de responsable</a>
 				  	</li>
-				  	<li role="presentation">
+				  	<li role="presentation" ng-class="{active: nav.isActive('/enfermedades')}">
 				  		<a href="#/enfermedades">Tipos de enfermedades</a>
 				  	</li>
 				</ul>

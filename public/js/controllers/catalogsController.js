@@ -64,12 +64,17 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 		});
 });
 
-catalogs.controller('HeaderCtrl', function ($scope) {
+catalogs.controller('HeaderCtrl', function ($scope, $location) {
 	$scope.author = {
 		name: 			'Khriz Enríquez',
 		github: 		'khrizenriquez',
 		appName: 		'',
 		description: 	''
+	};
+
+	$scope.nav = {};
+	$scope.nav.isActive = function (path) {
+		return (path === $location.path()) ? true : false;
 	};
 });
 
