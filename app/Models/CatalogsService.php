@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Department;
+use App\Models\DiseaseType;
+use App\Models\ResponsibleType;
 
 class CatalogsService {
 
@@ -13,6 +15,7 @@ class CatalogsService {
             return json_encode($result);   
         }
         switch ($parameters['action']) {
+            /*      DEPARTMENTS*/
             case 'department_list':
                 $result = [];
                 if (!User::isLogged()) {
@@ -46,6 +49,9 @@ class CatalogsService {
                     return json_encode(SiteService::MissingParameters());
                 }
             break;
+
+
+            /*      TOWNS*/
             case 'town_list':
                 $result = [];
                 if (!User::isLogged()) {
@@ -58,6 +64,38 @@ class CatalogsService {
 
                 return $result;
             break;
+
+
+            /*      RESPONSIBLES*/
+            case 'responsible_list':
+                $result = [];
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+
+                $result['Result']   = ResponsibleType::getAllResponsibles();
+                $result['Message']  = 'OK';
+
+                return $result;
+            break;
+
+
+
+            /*      RESPONSIBLES*/
+            case 'responsible_list':
+                $result = [];
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+
+                $result['Result']   = DiseaseType::getAllDiseases();
+                $result['Message']  = 'OK';
+
+                return $result;
+            break;
+
             default:
                 $result = [];
                 $result['Result'] = 'ERROR';
