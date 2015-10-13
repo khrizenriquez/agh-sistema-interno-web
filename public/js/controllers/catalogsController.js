@@ -97,6 +97,13 @@ catalogs.controller('DepartmentsCtrl', function ($scope, allDepartmentsData) {
 	$scope.listAllDepartments = function () {
 		console.log('Puchamon');
 	}
+
+	$scope.departmentAction = function (id) {
+		console.log(id);
+		$('#catalogsModal').attr('data-tb-id', id);
+		$('#catalogsModal').modal('hide');
+		$('#catalogsModal').modal('show');
+	}
 });
 
 
