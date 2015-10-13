@@ -27,7 +27,7 @@
 		        </tr>
 		    </thead>
 		    <tbody ng-repeat="department in allDepartments | filter:searchInput">
-		        <tr>
+		        <tr ng-click="departmentAction(department.id)">
 		            <td>{{ department.id }}</td>
 		            <td>{{ department.name }}</td>
 		        </tr>
