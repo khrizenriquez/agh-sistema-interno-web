@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/styles/roboto.css" />
     <link rel="stylesheet" href="/styles/bootstrap/material/material-fullpalette.css" />
     <link rel="stylesheet" href="/styles/bootstrap/material/ripples.css" />
+    <link rel="stylesheet" href="/styles/general.css" />
 
     <!-- Dropdown.js -->
     <!-- <link rel="stylesheet" href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" /> -->
@@ -22,18 +23,26 @@
   </head>
 
   <body>
-  <!-- HEADER DESKTOP -->
-  <div>
-    HEADER
-  </div>
+    <!-- HEADER DESKTOP -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            AGH
+          </a>
+        </div>
+      </div>
+    </nav>
 
   @include('layouts.generalModals')
 
   @yield('content')
   	<!-- Footer -->
-	<div>
-   Footer 
-  </div>
+  	<nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum alias suscipit autem, magnam voluptate libero, labore amet, odio repellat corporis sint ducimus dolorum, facere temporibus fuga delectus ad! Facilis, provident.
+      </div>
+    </nav>
 
   <script src="/js/vendor/jquery.js"></script>
 
