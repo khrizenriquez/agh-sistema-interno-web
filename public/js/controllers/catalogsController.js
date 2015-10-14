@@ -23,17 +23,22 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 		.when('/departamentos/crear/', {
 			templateUrl: function (urlAttr) {
 				return 'parts/puchamosDetails.html';
-			}, controller: 'PuchamonDetailCtrl'
+			}, controller: 'DepartmentsCtrl'
 		})
-		.when('/departamentos/actualizar/:number', {
+		.when('/departamentos/actualizar/:id', {
 			templateUrl: function (urlAttr) {
 				return 'parts/puchamosDetails.html';
-			}, controller: 'PuchamonDetailCtrl'
+			}, controller: 'DepartmentsCtrl'
 		})
-		.when('/departamentos/eliminar/:number', {
+		.when('/departamentos/eliminar/:id', {
 			templateUrl: function (urlAttr) {
 				return 'parts/puchamosDetails.html';
-			}, controller: 'PuchamonDetailCtrl'
+			}, controller: 'DepartmentsCtrl'
+		})
+		.when('/departamentos/ver/:id', {
+			templateUrl: function (urlAttr) {
+				return '/html/parts/catalogs/departments.html';
+			}, controller: 'DepartmentsCtrl.holis'
 		})
 
 
@@ -94,6 +99,10 @@ catalogs.controller('DepartmentsCtrl', function ($scope, allDepartmentsData) {
 						console.log(error);
 					});
 
+	$scope.data = function () {
+		console.log('holis');
+	};
+
 	$scope.listAllDepartments = function () {
 		console.log('Puchamon');
 	}
@@ -104,6 +113,17 @@ catalogs.controller('DepartmentsCtrl', function ($scope, allDepartmentsData) {
 		$('#catalogsModal').modal('hide');
 		$('#catalogsModal').modal('show');
 	}
+
+	$scope.updateDepartment = function (id) {
+		console.log('Khriz');
+		console.log(id);
+	};
+	$scope.deleteDepartment = function (id) {
+		console.log(id);
+	};
+	$scope.seeDepartment = function (id) {
+		console.log($scope);
+	};
 });
 
 

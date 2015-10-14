@@ -37,7 +37,7 @@
 	</div>
 
 	<!-- Option modal -->
-	<div id="catalogsModal" class="modal fade" tabindex="-1" role="dialog" data-tb-id>
+	<div id="catalogsModal" class="modal fade" tabindex="-1" role="dialog" data-ng-tb-id ng-controller="DepartmentsCtrl">
 	  	<div class="modal-dialog">
 			<div class="modal-content">
 		      	<div class="modal-header">
@@ -50,9 +50,9 @@
 		      	</div>
 
 		      	<div class="modal-footer">
-		        	<button type="button" class="btn btn-info" data-dismiss="modal">Ver información</button>
-		        	<button type="button" class="btn btn-default" data-dismiss="modal">Editar</button>
-		        	<button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+		        	<a role="button" class="btn btn-info" href="#/departamentos/ver/1">Ver</a>
+		        	<button type="button" class="btn btn-default" ng-click="updateDepartment(document.querySelector('#catalogsModal').getAttribute('data-tb-id'))">Editar</button>
+		        	<button type="button" class="btn btn-danger" ng-click="deleteDepartment(document.querySelector('#catalogsModal').getAttribute('data-tb-id'))">Eliminar</button>
 		      	</div>
 		    </div>
 	  	</div>
