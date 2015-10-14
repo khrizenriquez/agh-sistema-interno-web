@@ -1,12 +1,14 @@
 @extends('layouts.layout')
 @section('styles')
 
+	<link rel="stylesheet" href="/styles/background.css" />
+
 	<title>Inicio</title>
 
 @stop
 @section('content')
 <body>
-	<h1>Inicio</h1>
+	<div class="container-back"></div>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -26,6 +28,7 @@
 @stop
 
 @section('scripts')
+<script src="/js/vendor/Vague.js/Vague.js"></script>
 <script src="/js/protos/login.js"></script>
 <script src="/js/login.js"></script>
 @stop
