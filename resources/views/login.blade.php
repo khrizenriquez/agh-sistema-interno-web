@@ -1,13 +1,21 @@
-@extends('layouts.layout')
+@extends('layouts.loginTemplate')
 @section('styles')
+	<link rel="stylesheet" href="/styles/background.css" />
 
 	<title>Inicia sesión</title>
 
 @stop
 @section('content')
 <body>
-	<h1>Login</h1>
+	<div class="container-back"></div>
 
+	<div class="container-fluid margin-top-background">
+		<div class="row">
+			<div style="text-align: center;" class="col-xs-12 col-md-4 col-md-offset-4">
+				<h1>Inicia sesión</h1>
+			</div>
+		</div>
+	</div>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-md-4 col-md-offset-4">
@@ -37,6 +45,7 @@
 	</div>
 @stop
 @section('scripts')
+<script src="/js/vendor/Vague.js/Vague.js"></script>
 <script src="/js/protos/login.js"></script>
 <script src="/js/login.js"></script>
 @stop
