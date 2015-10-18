@@ -31,4 +31,5 @@
 <script src="/js/vendor/Vague.js/Vague.js"></script>
 <script src="/js/protos/login.js"></script>
 <script src="/js/login.js"></script>
+<script src="/js/blur.js"></script>
 @stop
