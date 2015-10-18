@@ -140,8 +140,15 @@ catalogs.controller('DepartmentsDetailCtrl', function ($scope, $routeParams, all
 							$scope.department = [];
 						});
 
-	$scope.updateDepartment = function (id) {
-		console.log(id);
+	$scope.updateDepartment = function (id, name) {
+		allDepartmentsData.updateDepartmentDetail(id, name)
+						.success(function (resp) {
+							console.log(resp);
+							/*$scope.department 	= resp.Result;*/
+						}).error(function (err) {
+							console.log(err);
+							/*$scope.department = [];*/
+						});
 	};
 
 	return;

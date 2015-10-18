@@ -13,7 +13,7 @@ AllDepartments.factory('allDepartmentsData', function ($http) {
             	action: 'department_list'
             };
         return $http.post('/services/catalogs', $.param(objs));
-    }
+    };
 
     obj.getDepartmentDetail = function (departmentId) {
         var objs  = {
@@ -21,7 +21,17 @@ AllDepartments.factory('allDepartmentsData', function ($http) {
                 department: departmentId
             };
         return $http.post('/services/catalogs', $.param(objs));
-    }
+    };
+
+    obj.updateDepartmentDetail = function (departmentId, dapartmentName) {
+        var objs  = {
+                action: 'department_update', 
+                department: departmentId,
+                name: dapartmentName
+            };
+
+        return $http.post('/services/catalogs', $.param(objs));
+    };
 
  	return obj;
 });

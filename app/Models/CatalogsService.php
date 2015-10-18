@@ -49,18 +49,30 @@ class CatalogsService {
                 }
             break;
             case 'department_update':
-                if(isset($parameters['email'])){
-                    return json_encode($this->emailExists($parameters['email']));
-                }else{
-                    return json_encode(SiteService::MissingParameters());
+                extract($parameters);
+                $result = [];
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
                 }
+
+                $result['Result']   = Department::updateDepartmentDetail($department, $name);
+                $result['Message']  = 'OK';
+
+                return $result;
             break;
             case 'department_delete':
-                if(isset($parameters['email'])){
-                    return json_encode($this->emailExists($parameters['email']));
-                }else{
-                    return json_encode(SiteService::MissingParameters());
+                extract($parameters);
+                $result = [];
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
                 }
+
+                $result['Result']   = Department::updateDepartmentDetail($department, $name);
+                $result['Message']  = 'OK';
+
+                return $result;
             break;
 
 

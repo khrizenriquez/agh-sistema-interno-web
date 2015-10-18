@@ -28,6 +28,28 @@ class Department extends Model {
         return $department;
     }
 
+    public static function updateDepartmentDetail ($departmentId, $name) {
+        $department = Department::find($departmentId);
+
+        $department->name       = $name;
+        $department->updated_at = date('Y-m-d h:i:s');
+
+        $department->update();
+
+        return $department;
+    }
+
+    public static function deleteDepartmentDetail ($departmentId) {
+        $department = Department::find($departmentId);
+
+        $department->status     = 0;
+        $department->updated_at = date('Y-m-d h:i:s');
+
+        $department->update();
+
+        return $department;
+    }
+
     public static function getTownsByDeparment ($departmentId) {
         $departments = Department::join('town', 'town.fk_town_department', '=', $departmentId)
                                     //->where('active', '=', '1')
