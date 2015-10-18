@@ -13,15 +13,15 @@ class Department extends Model {
     }
 
     public static function getAllDepartments () {
-        $model = Department::where('status', '=', 1)
-                            ->orderBy('id', 'asc')
-                            ->get(['created_at', 'updated_at', 'name', 'id']);
+        $model = Department::/*where('status', '=', 1)
+                            ->*/orderBy('id', 'asc')
+                            ->get(['created_at', 'updated_at', 'name', 'id', 'status']);
         return $model;
     }
 
     public static function getDepartmentDetail ($departmentId) {
         $department = Department::where('id', '=', $departmentId)
-                                ->where('status', '=', 1)
+                                /*->where('status', '=', 1)*/
                                 ->get(['created_at', 'updated_at', 'name', 'id'])
                                 ->first();
 

@@ -69,7 +69,7 @@ class CatalogsService {
                                 'Message'   => 'No esta loguedo'];
                 }
 
-                $result['Result']   = Department::updateDepartmentDetail($department, $name);
+                $result['Result']   = Department::deleteDepartmentDetail($department);
                 $result['Message']  = 'OK';
 
                 return $result;

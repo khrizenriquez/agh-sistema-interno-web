@@ -102,8 +102,15 @@ catalogs.controller('DepartmentsCtrl', function ($scope, allDepartmentsData) {
 	};
 	$scope.deleteDepartment = function (id) {
 		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
-		window.location = '#/departamentos/eliminar/' + departmentId;
-		$('#catalogsModal').modal('hide');
+
+		allDepartmentsData.deleteDepartmentDetail(departmentId)
+						.success(function (resp) {
+							console.log(resp);
+
+							$('#catalogsModal').modal('hide');
+						}).error(function (err) {
+							console.log(err);
+						});
 	};
 	$scope.seeDepartment = function (id) {
 		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
@@ -144,10 +151,8 @@ catalogs.controller('DepartmentsDetailCtrl', function ($scope, $routeParams, all
 		allDepartmentsData.updateDepartmentDetail(id, name)
 						.success(function (resp) {
 							console.log(resp);
-							/*$scope.department 	= resp.Result;*/
 						}).error(function (err) {
 							console.log(err);
-							/*$scope.department = [];*/
 						});
 	};
 

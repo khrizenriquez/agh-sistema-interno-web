@@ -23,6 +23,14 @@ AllDepartments.factory('allDepartmentsData', function ($http) {
         return $http.post('/services/catalogs', $.param(objs));
     };
 
+    obj.deleteDepartmentDetail = function (departmentId) {
+        var objs  = {
+                action: 'department_delete', 
+                department: departmentId
+            };
+        return $http.post('/services/catalogs', $.param(objs));
+    };
+
     obj.updateDepartmentDetail = function (departmentId, dapartmentName) {
         var objs  = {
                 action: 'department_update', 

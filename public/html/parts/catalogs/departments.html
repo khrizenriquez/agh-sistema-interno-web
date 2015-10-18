@@ -13,7 +13,7 @@
 
 	    <div class="form-group">
 	    	<div class="col-xs-12 col-md-8">
-	    		<button type="button" class="btn btn-success btn-raised">Crear</button>
+	    		<a href="#/departamentos/crear/" role="button" class="btn btn-success btn-raised">Crear</a>
 	    	</div>
 	    </div>
 	</div>
@@ -27,7 +27,7 @@
 		        </tr>
 		    </thead>
 		    <tbody ng-repeat="department in allDepartments | filter:searchInput">
-		        <tr ng-click="departmentAction(department.id)">
+		        <tr ng-class="{danger: department.status == 0}" ng-click="departmentAction(department.id)">
 		            <td>{{ department.id }}</td>
 		            <td>{{ department.name }}</td>
 		        </tr>
