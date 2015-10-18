@@ -8,7 +8,7 @@ var User = function () {};
 *cb: (callback) function to do something
 */
 User.prototype.login = function(username, password, cb) {
-	var r = $.post('services/auth', {
+	var r = $.post('/services/auth', {
 		user: username,
 		pass: password,
 		action: 'login'
@@ -22,7 +22,7 @@ User.prototype.login = function(username, password, cb) {
 };
 
 User.prototype.logout = function (cb) {
-	var r = $.post('services/auth', {
+	var r = $.post('/services/auth', {
 		action: 'logout'
 	}, function () {}, 'json');
 	r.done(function (response) {
