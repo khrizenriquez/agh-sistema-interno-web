@@ -25,20 +25,20 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 				return 'parts/puchamosDetails.html';
 			}, controller: 'DepartmentsCtrl'
 		})
-		.when('/departamentos/actualizar/:id', {
+		.when('/departamentos/actualizar/:number', {
 			templateUrl: function (urlAttr) {
 				return 'parts/puchamosDetails.html';
 			}, controller: 'DepartmentsCtrl'
 		})
-		.when('/departamentos/eliminar/:id', {
+		.when('/departamentos/eliminar/:number', {
 			templateUrl: function (urlAttr) {
 				return 'parts/puchamosDetails.html';
 			}, controller: 'DepartmentsCtrl'
 		})
-		.when('/departamentos/ver/:id', {
+		.when('/departamentos/ver/:number', {
 			templateUrl: function (urlAttr) {
-				return '/html/parts/catalogs/departments.html';
-			}, controller: 'DepartmentsCtrl.holis'
+				return '/html/parts/catalogs/departmentDetail.html';
+			}, controller: 'DepartmentsDetailCtrl'
 		})
 
 
@@ -87,43 +87,52 @@ catalogs.controller('DepartmentsCtrl', function ($scope, allDepartmentsData) {
 	$scope.allDepartments;
 
 	allDepartmentsData.getAllDepartments()
-					.success(function (resp) {
-						console.log(resp);
-						if (resp.Message == 'OK') {
-							$scope.allDepartments = resp.Result;
-						} else {
-							$scope.allDepartments = [];
-						}
-					})
-					.error(function (error) {
-						console.log(error);
-					});
-
-	$scope.data = function () {
-		console.log('holis');
-	};
-
-	$scope.listAllDepartments = function () {
-		console.log('Puchamon');
-	}
+						.success(function (resp) {
+							console.log(resp);
+							if (resp.Message == 'OK') {
+								$scope.allDepartments = resp.Result;
+							} else {
+								$scope.allDepartments = [];
+							}
+						})
+						.error(function (error) {
+							console.log(error);
+						});
 
 	$scope.departmentAction = function (id) {
-		console.log(id);
 		$('#catalogsModal').attr('data-tb-id', id);
 		$('#catalogsModal').modal('hide');
 		$('#catalogsModal').modal('show');
 	}
 
 	$scope.updateDepartment = function (id) {
-		console.log('Khriz');
-		console.log(id);
+		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
+		window.location = '#/departamentos/actualizar/' + departmentId;
+		$('#catalogsModal').modal('hide');
 	};
 	$scope.deleteDepartment = function (id) {
-		console.log(id);
+		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
+		window.location = '#/departamentos/eliminar/' + departmentId;
+		$('#catalogsModal').modal('hide');
 	};
 	$scope.seeDepartment = function (id) {
-		console.log($scope);
+		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
+		window.location = '#/departamentos/ver/' + departmentId;
+		$('#catalogsModal').modal('hide');
 	};
+});
+
+catalogs.controller('DepartmentsDetailCtrl', function ($scope, $routeParams, allDepartmentsData) {
+	var id = $routeParams.number;
+	$scope.department;
+	allDepartmentsData.getDepartmentDetail(id)
+						.success(function (resp) {
+							console.log(resp);
+							$scope.department = resp;
+						}).error(function (err) {
+							console.log(err);
+							$scope.department = [];
+						});
 });
 
 

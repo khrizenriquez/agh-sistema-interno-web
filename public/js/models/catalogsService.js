@@ -6,16 +6,22 @@ var AllResponsibles = angular.module('AllResponsibles', []);
 var AllDiseases 	= angular.module('AllDiseases', []);
 
 AllDepartments.factory('allDepartmentsData', function ($http) {
-	var obj 	= {};
-	var objs 	= {
-        	action: 'department_list'
-        };
+	var obj = {};
 
     obj.getAllDepartments = function () {
+    	var objs = {
+            	action: 'department_list'
+            };
         return $http.post('/services/catalogs', $.param(objs));
     }
 
-    //obj.seePuchamon = function(puchamons) {};
+    obj.getDepartmentDetail = function (departmentId) {
+        var objs  = {
+                action: 'department', 
+                department: departmentId
+            };
+        return $http.post('/services/catalogs', $.param(objs));
+    }
 
  	return obj;
 });
