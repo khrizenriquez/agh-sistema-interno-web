@@ -25,17 +25,7 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 				return 'parts/puchamosDetails.html';
 			}, controller: 'DepartmentsCtrl'
 		})
-		.when('/departamentos/actualizar/:number', {
-			templateUrl: function (urlAttr) {
-				return 'parts/puchamosDetails.html';
-			}, controller: 'DepartmentsCtrl'
-		})
-		.when('/departamentos/eliminar/:number', {
-			templateUrl: function (urlAttr) {
-				return 'parts/puchamosDetails.html';
-			}, controller: 'DepartmentsCtrl'
-		})
-		.when('/departamentos/ver/:number', {
+		.when('/departamentos/:url/:number', {
 			templateUrl: function (urlAttr) {
 				return '/html/parts/catalogs/departmentDetail.html';
 			}, controller: 'DepartmentsDetailCtrl'
@@ -117,22 +107,44 @@ catalogs.controller('DepartmentsCtrl', function ($scope, allDepartmentsData) {
 	};
 	$scope.seeDepartment = function (id) {
 		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
-		window.location = '#/departamentos/ver/' + departmentId;
+		window.location = '#/departamentos/informacion/' + departmentId;
 		$('#catalogsModal').modal('hide');
 	};
 });
 
 catalogs.controller('DepartmentsDetailCtrl', function ($scope, $routeParams, allDepartmentsData) {
-	var id = $routeParams.number;
 	$scope.department;
+	$scope.editable;
+
+	var route = $routeParams.url;
+	if (route != 'informacion' && route != 'actualizar' && route != 'eliminar') {
+		return;
+	}
+
+	var editable = (route == 'actualizar') ? true : false;
+	var id = $routeParams.number;
+
+	if (route == 'eliminar') {
+		console.log('Eliminando ' + id);
+
+		return;
+	}
+
 	allDepartmentsData.getDepartmentDetail(id)
 						.success(function (resp) {
 							console.log(resp);
-							$scope.department = resp;
+							$scope.department 	= resp.Result;
+							$scope.editable 	= editable;
 						}).error(function (err) {
 							console.log(err);
 							$scope.department = [];
 						});
+
+	$scope.updateDepartment = function (id) {
+		console.log(id);
+	};
+
+	return;
 });
 
 
