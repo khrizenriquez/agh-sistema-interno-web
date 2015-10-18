@@ -11,10 +11,14 @@
 |
 */
 
-$app->get('/', [
-	'as' => 'home', 'uses' => 'PageController@getLanding'
-]);
+$app->group(['namespace' => 'App\Http\Controllers'], function($group) {
+	$group->get('/', [
+		'as' => 'home', 'uses' => 'PageController@getLanding'
+	]);
 
-$app->get('{page}', 'PageController@getPage');
+	$group->get('{page}', 'PageController@getPage');
 
-$app->post('services/{servicename}','ServiceController@getService');
+	$group->post('services/{servicename}','ServiceController@getService');
+});
+
+
