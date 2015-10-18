@@ -28,6 +28,19 @@ class CatalogsService {
 
                 return $result;
             break;
+            case 'department':
+                extract($parameters);
+                $result = [];
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+
+                $result['Result']   = Department::getDepartmentDetail($department);
+                $result['Message']  = 'OK';
+
+                return $result;
+            break;
             case 'department_create':
                 if(isset($parameters['email'])){
                     return json_encode($this->emailExists($parameters['email']));
