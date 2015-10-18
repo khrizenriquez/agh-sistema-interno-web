@@ -19,6 +19,15 @@ class Department extends Model {
         return $model;
     }
 
+    public static function getDepartmentDetail ($departmentId) {
+        $department = Department::where('id', '=', $departmentId)
+                                ->where('status', '=', 1)
+                                ->get(['created_at', 'updated_at', 'name', 'id'])
+                                ->first();
+
+        return $department;
+    }
+
     public static function getTownsByDeparment ($departmentId) {
         $departments = Department::join('town', 'town.fk_town_department', '=', $departmentId)
                                     //->where('active', '=', '1')
