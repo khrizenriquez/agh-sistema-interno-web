@@ -51,7 +51,7 @@
   	<!-- Footer -->
   	<nav class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum alias suscipit autem, magnam voluptate libero, labore amet, odio repellat corporis sint ducimus dolorum, facere temporibus fuga delectus ad! Facilis, provident.
+        <a alt="Chris Enriquez" href="https://twitter.com/khrizEnriquez">Chris Enríquez</a>
       </div>
     </nav>
 
