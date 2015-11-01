@@ -60,8 +60,6 @@
 @stop
 
 @section('scripts')
-<script src="/js/vendor/angularJS/angular.min.js"></script>
-<script src="/js/vendor/angularJS/angular-route.min.js"></script>
 <script src="/js/models/catalogsService.js"></script>
 <script src="/js/controllers/catalogsController.js"></script>
 <script src="/js/protos/login.js"></script>

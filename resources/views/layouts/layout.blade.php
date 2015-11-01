@@ -48,8 +48,11 @@
 
     <script src="/js/vendor/idealform/jquery.idealforms.min.js"></script>
     <script src="/js/vendor/idealform/jquery.idealforms.i18n.es.js"></script>
+    <script src="/js/vendor/angularJS/angular.min.js"></script>
+    <script src="/js/vendor/angularJS/angular-route.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/login.js"></script>
+    <script src="/js/controllers/principalMenuController.js"></script>
     @yield('scripts')
   </body>
 </html>
