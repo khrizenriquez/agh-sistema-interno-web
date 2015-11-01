@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/bootstrap/material/material-fullpalette.css" />
     <link rel="stylesheet" href="/styles/bootstrap/material/ripples.css" />
     <link rel="stylesheet" href="/styles/general.css" />
+    <link rel="stylesheet" href="/styles/menu.css" />
 
     <!-- Dropdown.js -->
     <!-- <link rel="stylesheet" href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" /> -->
@@ -52,7 +53,6 @@
     <script src="/js/vendor/angularJS/angular-route.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/login.js"></script>
-    <script src="/js/controllers/principalMenuController.js"></script>
     @yield('scripts')
   </body>
 </html>

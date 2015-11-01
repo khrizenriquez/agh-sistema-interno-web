@@ -1,0 +1,10 @@
+.brand-figure {
+	width: 45px;
+	height: 45px;
+	overflow: hidden;
+}
+
+.brand-figure img {
+	width: 60%;
+	height: 90%;
+}
