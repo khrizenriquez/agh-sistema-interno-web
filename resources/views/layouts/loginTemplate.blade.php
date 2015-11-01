@@ -22,33 +22,29 @@
   </head>
 
   <body>
+    @include('layouts.generalModals')
 
-  @include('layouts.generalModals')
-
-  @yield('content')
+    @yield('content')
+    <!-- Footer -->
+    @include('parts/footer')
   	<!-- Footer -->
-    <nav class="navbar navbar-inverse navbar-fixed-bottom">
-      <div class="container">
-        <a alt="Chris Enriquez" href="https://twitter.com/khrizEnriquez">Chris Enríquez</a>
-      </div>
-    </nav>
 
-  <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/vendor/jquery.js"></script>
 
-  <!-- Twitter Bootstrap -->
-  <script src="/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <!-- Twitter Bootstrap -->
+    <script src="/js/vendor/bootstrap/bootstrap.min.js"></script>
 
-  <!-- Material Design for Bootstrap -->
-  <script src="/js/vendor/bootstrap/material/material.js"></script>
-  <script src="/js/vendor/bootstrap/material/ripples.js"></script>
-  <script>
-    $.material.init();
-  </script>
+    <!-- Material Design for Bootstrap -->
+    <script src="/js/vendor/bootstrap/material/material.js"></script>
+    <script src="/js/vendor/bootstrap/material/ripples.js"></script>
+    <script>
+      $.material.init();
+    </script>
 
-  <script src="/js/vendor/idealform/jquery.idealforms.min.js"></script>
-  <script src="/js/vendor/idealform/jquery.idealforms.i18n.es.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/login.js"></script>
-  @yield('scripts')
+    <script src="/js/vendor/idealform/jquery.idealforms.min.js"></script>
+    <script src="/js/vendor/idealform/jquery.idealforms.i18n.es.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/login.js"></script>
+    @yield('scripts')
   </body>
 </html>

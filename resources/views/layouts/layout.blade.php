@@ -23,54 +23,33 @@
   </head>
 
   <body>
-    <!-- HEADER DESKTOP -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">
-            AGH
-          </a>
-        </div>
+    <!-- HEADER -->
+    @include('parts/header')
+    <!-- HEADER -->
 
+    @include('layouts.generalModals')
 
-        <div class="navbar-collapse collapse navbar-inverse-collapse">
-          <ul class="nav navbar-nav">
-              <li class="active"><a href="/catalogos">Catálogos</a></li>
-              <li class=""><a href="/perfil">Perfil</a></li>
-          </ul>
-        </div>
+    @yield('content')
+    <!-- Footer -->
+    @include('parts/footer')
+    <!-- Footer -->
 
+    <script src="/js/vendor/jquery.js"></script>
 
+    <!-- Twitter Bootstrap -->
+    <script src="/js/vendor/bootstrap/bootstrap.min.js"></script>
 
-      </div>
-    </nav>
+    <!-- Material Design for Bootstrap -->
+    <script src="/js/vendor/bootstrap/material/material.js"></script>
+    <script src="/js/vendor/bootstrap/material/ripples.js"></script>
+    <script>
+      $.material.init();
+    </script>
 
-  @include('layouts.generalModals')
-
-  @yield('content')
-  	<!-- Footer -->
-  	<nav class="navbar navbar-inverse navbar-fixed-bottom">
-      <div class="container">
-        <a alt="Chris Enriquez" href="https://twitter.com/khrizEnriquez">Chris Enríquez</a>
-      </div>
-    </nav>
-
-  <script src="/js/vendor/jquery.js"></script>
-
-  <!-- Twitter Bootstrap -->
-  <script src="/js/vendor/bootstrap/bootstrap.min.js"></script>
-
-  <!-- Material Design for Bootstrap -->
-  <script src="/js/vendor/bootstrap/material/material.js"></script>
-  <script src="/js/vendor/bootstrap/material/ripples.js"></script>
-  <script>
-    $.material.init();
-  </script>
-
-  <script src="/js/vendor/idealform/jquery.idealforms.min.js"></script>
-  <script src="/js/vendor/idealform/jquery.idealforms.i18n.es.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/login.js"></script>
-  @yield('scripts')
+    <script src="/js/vendor/idealform/jquery.idealforms.min.js"></script>
+    <script src="/js/vendor/idealform/jquery.idealforms.i18n.es.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/login.js"></script>
+    @yield('scripts')
   </body>
 </html>
