@@ -14,7 +14,11 @@
     </div>
 
     <?php 
-      $menu = [['/catalogos', 'Catálogos'], ['/perfil', 'Perfil']];
+      $menu = [
+                ['/catalogos', 'Catálogos'], 
+                ['/perfil', 'Perfil'], 
+                ['/pacientes', 'Pacientes']
+              ];
     ?>
 
     <div class="navbar-collapse collapse navbar-inverse-collapse">
@@ -29,9 +33,18 @@
         @endforeach
       </ul>
 
-      <form class="navbar-form navbar-right">
-        <input type="text" class="form-control col-lg-8" placeholder="Search">
-      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="javascript:void(0)">Action</a></li>
+                <li><a href="javascript:void(0)">Another action</a></li>
+                <li><a href="javascript:void(0)">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0)">Separated link</a></li>
+            </ul>
+        </li>
+      </ul>
     </div>
 
   </div>
