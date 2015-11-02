@@ -39,3 +39,12 @@ function showSuccessModal (content) {
 function hideSuccessModal () {
 	$('#successModal').modal('hide');
 }
+
+try {
+	document.querySelector('#logoutOption').addEventListener('click', function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+
+		logout();
+	});
+} catch (ex) {}

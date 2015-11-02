@@ -36,7 +36,7 @@ $(function () {
 function logout () {
 	var u = new User();
 	u.logout(function () {
-		window.location.reload();
+		window.location = '/';
 		return;
 	});
 }

@@ -22,7 +22,7 @@
     ?>
 
     <div class="navbar-collapse collapse navbar-inverse-collapse">
-      <ul class="nav navbar-nav" ng-controller="MenuCtrl">
+      <ul class="nav navbar-nav">
         @foreach ($menu as $m)
           <?php
             $active = (app('request')->server('REDIRECT_URL') == $m[0]) ? 'active' : '';
@@ -35,13 +35,18 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-            <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">{{ $firstName }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a href="javascript:void(0)">Action</a></li>
-                <li><a href="javascript:void(0)">Another action</a></li>
-                <li><a href="javascript:void(0)">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="javascript:void(0)">Separated link</a></li>
+                <li>
+                  <a href="#"><i class="mdi-action-settings"></i> Ajustes</a>
+                </li>
+                <!-- <li>
+                  <a href="javascript:void(0)">Ajustes</a>
+                </li>
+                <li class="divider"></li> -->
+                <li>
+                  <a id="logoutOption" href="#"><i class="mdi-navigation-cancel"></i> Cerrar sesión</a>
+                </li>
             </ul>
         </li>
       </ul>
