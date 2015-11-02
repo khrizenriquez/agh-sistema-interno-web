@@ -8,3 +8,10 @@
 	width: 60%;
 	height: 90%;
 }
+
+.dropdown-toggle {
+	cursor: pointer;
+}
+.dropdown-menu li {
+	cursor: pointer;
+}

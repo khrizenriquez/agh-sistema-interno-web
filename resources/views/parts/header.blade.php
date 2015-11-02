@@ -26,26 +26,27 @@
         @foreach ($menu as $m)
           <?php
             $active = (app('request')->server('REDIRECT_URL') == $m[0]) ? 'active' : '';
+            $links  = (app('request')->server('REDIRECT_URL') == $m[0]) ? "<a>".$m[1]."</a>" : "<a href='".$m[0]."'>".$m[1]."</a>";
           ?>
         <li class="{{ $active }}">
-          <a href="{{ $m[0] }}">{{ $m[1] }}</a>
+          <?= $links; ?>
         </li>
         @endforeach
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-            <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">{{ $firstName }} <b class="caret"></b></a>
+            <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">{{ $firstName }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
-                  <a href="#"><i class="mdi-action-settings"></i> Ajustes</a>
+                  <a><i class="mdi-action-settings"></i> Ajustes</a>
                 </li>
                 <!-- <li>
                   <a href="javascript:void(0)">Ajustes</a>
                 </li>
                 <li class="divider"></li> -->
                 <li>
-                  <a id="logoutOption" href="#"><i class="mdi-navigation-cancel"></i> Cerrar sesión</a>
+                  <a id="logoutOption"><i class="mdi-navigation-cancel"></i> Cerrar sesión</a>
                 </li>
             </ul>
         </li>
