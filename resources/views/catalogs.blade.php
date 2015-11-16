@@ -52,7 +52,8 @@
 		      	<div class="modal-footer">
 		        	<button role="button" class="btn btn-info" ng-click="seeDepartment()">Ver</button>
 		        	<button type="button" class="btn btn-default" ng-click="updateDepartment()">Editar</button>
-		        	<button type="button" class="btn btn-danger" ng-click="deleteDepartment()">Eliminar</button>
+		        	<button id="catalogsDesactivate" type="button" class="btn btn-danger" ng-click="deleteDepartment()">Desactivar</button>
+		        	<button id="catalogsActivate" type="button" class="btn btn-success" ng-click="deleteDepartment()">Activar</button>
 		      	</div>
 		    </div>
 	  	</div>

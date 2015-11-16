@@ -89,7 +89,14 @@ catalogs.controller('DepartmentsCtrl', function ($scope, allDepartmentsData) {
 							console.log(error);
 						});
 
-	$scope.departmentAction = function (id) {
+	$scope.departmentAction = function (id, status) {
+		if (status == 0) {
+			$('#catalogsModal #catalogsDesactivate').hide();
+			$('#catalogsModal #catalogsActivate').show();
+		} else {
+			$('#catalogsModal #catalogsActivate').hide();
+			$('#catalogsModal #catalogsDesactivate').show();
+		}
 		$('#catalogsModal').attr('data-tb-id', id);
 		$('#catalogsModal').modal('hide');
 		$('#catalogsModal').modal('show');
