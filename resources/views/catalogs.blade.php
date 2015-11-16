@@ -53,7 +53,7 @@
 		        	<button role="button" class="btn btn-info" ng-click="seeDepartment()">Ver</button>
 		        	<button type="button" class="btn btn-default" ng-click="updateDepartment()">Editar</button>
 		        	<button id="catalogsDesactivate" type="button" class="btn btn-danger" ng-click="deleteDepartment()">Desactivar</button>
-		        	<button id="catalogsActivate" type="button" class="btn btn-success" ng-click="deleteDepartment()">Activar</button>
+		        	<button id="catalogsActivate" type="button" class="btn btn-success" ng-click="activeDepartment()">Activar</button>
 		      	</div>
 		    </div>
 	  	</div>

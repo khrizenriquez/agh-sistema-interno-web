@@ -31,6 +31,14 @@ AllDepartments.factory('allDepartmentsData', function ($http) {
         return $http.post('/services/catalogs', $.param(objs));
     };
 
+    obj.activeDepartmentDetail = function (departmentId) {
+        var objs  = {
+                action: 'department_active', 
+                department: departmentId
+            };
+        return $http.post('/services/catalogs', $.param(objs));
+    };
+
     obj.updateDepartmentDetail = function (departmentId, dapartmentName) {
         var objs  = {
                 action: 'department_update', 

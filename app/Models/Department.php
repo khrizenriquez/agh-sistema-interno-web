@@ -50,6 +50,17 @@ class Department extends Model {
         return $department;
     }
 
+    public static function activeDepartmentDetail ($departmentId) {
+        $department = Department::find($departmentId);
+
+        $department->status     = 1;
+        $department->updated_at = date('Y-m-d h:i:s');
+
+        $department->update();
+
+        return $department;
+    }
+
     public static function getTownsByDeparment ($departmentId) {
         $departments = Department::join('town', 'town.fk_town_department', '=', $departmentId)
                                     //->where('active', '=', '1')

@@ -74,6 +74,19 @@ class CatalogsService {
 
                 return $result;
             break;
+            case 'department_active':
+                extract($parameters);
+                $result = [];
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+
+                $result['Result']   = Department::activeDepartmentDetail($department);
+                $result['Message']  = 'OK';
+
+                return $result;
+            break;
 
 
             /*      TOWNS*/

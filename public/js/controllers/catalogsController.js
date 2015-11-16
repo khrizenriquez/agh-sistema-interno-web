@@ -119,6 +119,18 @@ catalogs.controller('DepartmentsCtrl', function ($scope, allDepartmentsData) {
 							console.log(err);
 						});
 	};
+	$scope.activeDepartment = function (id) {
+		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
+
+		allDepartmentsData.activeDepartmentDetail(departmentId)
+						.success(function (resp) {
+							console.log(resp);
+
+							$('#catalogsModal').modal('hide');
+						}).error(function (err) {
+							console.log(err);
+						});
+	};
 	$scope.seeDepartment = function (id) {
 		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
 		window.location = '#/departamentos/informacion/' + departmentId;
