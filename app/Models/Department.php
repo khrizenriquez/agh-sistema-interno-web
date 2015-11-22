@@ -19,6 +19,22 @@ class Department extends Model {
                     ]);
     }
 
+    public static function createDepartment ($name, $status, $userId) {
+        $department = new Department();
+
+        $date = date('Y-m-d H:i:s');
+
+        $department->name               = $name;
+        $department->status             = $status;
+        $department->created_at         = $date;
+        $department->updated_at         = $date;
+        $department->fk_user_who_create = $userId;
+
+        $department->save();
+
+        return $department;
+    }
+
     public static function getDepartmentDetail ($departmentId) {
         $department = static::where('id', '=', $departmentId)
                                 /*->where('status', '=', 1)*/

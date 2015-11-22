@@ -11,14 +11,13 @@ var statusOption = {
 
 function showDepartmentsCatalog () {
 	$('#departmentCatalog').jtable({
-        title: '',
+        title: ' ', 
         actions: {
             listAction: 	'/services/catalogs?action=department_list',
             createAction: 	'/services/catalogs?action=department_create',
             updateAction: 	'/services/catalogs?action=department_update',
             deleteAction: 	'/services/catalogs?action=department_delete'
-        },
-        fields: {
+        }, fields: {
             id: {
                 key: true,
                 list: false
@@ -28,11 +27,13 @@ function showDepartmentsCatalog () {
                 title: 'Estado', 
                 options: statusOption
             }, created_at: {
-                title: 'Creación', 
-                edit: false
+                create: false, 
+                edit: false, 
+                title: 'Creación'
             }, updated_at: {
-                title: 'Actualización', 
-                edit: false
+                create: false, 
+                edit: false, 
+                title: 'Actualización' 
             }
         }
     });

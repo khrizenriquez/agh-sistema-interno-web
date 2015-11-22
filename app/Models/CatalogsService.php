@@ -46,6 +46,16 @@ class CatalogsService {
                     $result = ['Result'     => 'ERROR', 
                                 'Message'   => 'No esta loguedo'];
                 }
+
+                extract($parameters);
+                $result = [];
+
+                $userId = User::getUserId();
+
+                $result['Record']   = Department::createDepartment($name, $status, $userId);
+                $result['Result']   = 'OK';
+
+                return $result;
             break;
             case 'department_update':
                 if (!User::isLogged()) {

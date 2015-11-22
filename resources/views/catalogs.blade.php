@@ -4,6 +4,7 @@
 
 @extends('layouts.layout')
 @section('styles')
+	<link rel="stylesheet" href="/styles/catalogs.css">
 	<link rel="stylesheet" href="/js/vendor/jquery-ui/jquery-ui.min.css" />
 	<link rel="stylesheet" href="/js/vendor/jtable/themes/metro/blue/jtable.min.css" />
 

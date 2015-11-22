@@ -55,4 +55,8 @@ class User extends Model {
 
         return User::find($uId);
     }
+
+    public static function getUserId () {
+        return $_SESSION['agh-user']['id'];
+    }
 }
