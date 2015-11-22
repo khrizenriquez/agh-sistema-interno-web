@@ -20,17 +20,6 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 			templateUrl: '/html/parts/catalogs/departments.html',
 			controller: 'DepartmentsCtrl'
 		})
-		.when('/departamentos/crear/', {
-			templateUrl: function (urlAttr) {
-				return 'parts/puchamosDetails.html';
-			}, controller: 'DepartmentsCtrl'
-		})
-		.when('/departamentos/:url/:number', {
-			templateUrl: function (urlAttr) {
-				return '/html/parts/catalogs/departmentDetail.html';
-			}, controller: 'DepartmentsDetailCtrl'
-		})
-
 
 		/*	Towns routes*/
 		.when('/municipios', {
@@ -46,13 +35,11 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 		})
 
 
-
 		/*	disease routes*/
 		.when('/enfermedades', {
 			templateUrl: '/html/parts/catalogs/disease.html',
 			controller: 'DiseaseCtrl'
 		})
-
 
 		.otherwise({
 			redirectTo: "/departamentos"
@@ -75,182 +62,17 @@ catalogs.controller('HeaderCtrl', function ($scope, $location) {
 
 catalogs.controller('DepartmentsCtrl', function ($scope, allDepartmentsData) {
 	$scope.allDepartments;
-
-	allDepartmentsData.getAllDepartments()
-						.success(function (resp) {
-							console.log(resp);
-							if (resp.Message == 'OK') {
-								$scope.allDepartments = resp.Result;
-							} else {
-								$scope.allDepartments = [];
-							}
-						})
-						.error(function (error) {
-							console.log(error);
-						});
-
-	$scope.departmentAction = function (id, status) {
-		if (status == 0) {
-			$('#catalogsModal #catalogsDesactivate').hide();
-			$('#catalogsModal #catalogsActivate').show();
-		} else {
-			$('#catalogsModal #catalogsActivate').hide();
-			$('#catalogsModal #catalogsDesactivate').show();
-		}
-		$('#catalogsModal').attr('data-tb-id', id);
-		$('#catalogsModal').modal('hide');
-		$('#catalogsModal').modal('show');
-	}
-
-	$scope.updateDepartment = function (id) {
-		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
-		window.location = '#/departamentos/actualizar/' + departmentId;
-		$('#catalogsModal').modal('hide');
-	};
-	$scope.deleteDepartment = function (id) {
-		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
-
-		allDepartmentsData.deleteDepartmentDetail(departmentId)
-						.success(function (resp) {
-							console.log(resp);
-
-							$('#catalogsModal').modal('hide');
-						}).error(function (err) {
-							console.log(err);
-						});
-	};
-	$scope.activeDepartment = function (id) {
-		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
-
-		allDepartmentsData.activeDepartmentDetail(departmentId)
-						.success(function (resp) {
-							console.log(resp);
-
-							$('#catalogsModal').modal('hide');
-						}).error(function (err) {
-							console.log(err);
-						});
-	};
-	$scope.seeDepartment = function (id) {
-		var departmentId = id || $('#catalogsModal').attr('data-tb-id');
-		window.location = '#/departamentos/informacion/' + departmentId;
-		$('#catalogsModal').modal('hide');
-	};
-});
-
-catalogs.controller('DepartmentsDetailCtrl', function ($scope, $routeParams, allDepartmentsData) {
-	$scope.department;
-	$scope.editable;
-
-	var route = $routeParams.url;
-	if (route != 'informacion' && route != 'actualizar' && route != 'eliminar') {
-		return;
-	}
-
-	var editable = (route == 'actualizar') ? true : false;
-	var id = $routeParams.number;
-
-	if (route == 'eliminar') {
-		console.log('Eliminando ' + id);
-
-		return;
-	}
-
-	allDepartmentsData.getDepartmentDetail(id)
-						.success(function (resp) {
-							console.log(resp);
-							$scope.department 	= resp.Result;
-							$scope.editable 	= editable;
-						}).error(function (err) {
-							console.log(err);
-							$scope.department = [];
-						});
-
-	$scope.updateDepartment = function (id, name) {
-		allDepartmentsData.updateDepartmentDetail(id, name)
-						.success(function (resp) {
-							console.log(resp);
-						}).error(function (err) {
-							console.log(err);
-						});
-	};
-
-	return;
 });
 
 
 catalogs.controller('TownsCtrl', function ($scope, allTownsData) {
 	$scope.allTowns;
-
-	allTownsData.getAllTowns()
-				.success(function (resp) {
-					console.log(resp);
-					if (resp.Message == 'OK') {
-						$scope.allTowns = resp.Result;
-					} else {
-						$scope.allTowns = [];
-					}
-				})
-				.error(function (error) {
-					console.log(error);
-				});
-
-	$scope.townAction = function (id, status) {
-		if (status == 0) {
-			$('#catalogsModal #catalogsDesactivate').hide();
-			$('#catalogsModal #catalogsActivate').show();
-		} else {
-			$('#catalogsModal #catalogsActivate').hide();
-			$('#catalogsModal #catalogsDesactivate').show();
-		}
-		$('#catalogsModal').attr('data-tb-id', id);
-		$('#catalogsModal').modal('hide');
-		$('#catalogsModal').modal('show');
-	}
-
-	$scope.listAllTowns = function () {
-		console.log('Puchamon');
-	}
 });
 
 catalogs.controller('ResponsibleCtrl', function ($scope, allResponsiblesData) {
 	$scope.allResponsibleTypes;
-
-	allResponsiblesData.getAllResponsibles()
-						.success(function (resp) {
-							console.log(resp);
-							if (resp.Message == 'OK') {
-								$scope.allResponsibleTypes = resp.Result;
-							} else {
-								$scope.allResponsibleTypes = [];
-							}
-						})
-						.error(function (error) {
-							console.log(error);
-						});
-
-	$scope.listAllTypes = function () {
-		console.log('Puchamon');
-	}
 });
 
 catalogs.controller('DiseaseCtrl', function ($scope, allDiseaseData) {
 	$scope.allDiseaseTypes;
-
-	allDiseaseData.getAllDisease()
-					.success(function (resp) {
-						console.log(resp);
-						if (resp.Message == 'OK') {
-							$scope.allDiseaseTypes = resp.Result;
-						} else {
-							$scope.allDiseaseTypes = [];
-						}
-					})
-					.error(function (error) {
-						console.log(error);
-					});
-
-	$scope.listAllTypes = function () {
-		console.log('Puchamon');
-	}
 });
