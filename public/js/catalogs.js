@@ -25,14 +25,17 @@ function showDepartmentsCatalog () {
                 title: 'Nombre departamento'
             }, status: {
                 title: 'Estado', 
+                sorting: false,
                 options: statusOption
             }, created_at: {
                 create: false, 
                 edit: false, 
+                sorting: false,
                 title: 'Creación'
             }, updated_at: {
                 create: false, 
                 edit: false, 
+                sorting: false,
                 title: 'Actualización' 
             }
         }
@@ -60,14 +63,17 @@ function showTownsCatalog () {
                 options: departmentsOption
             }, status: {
                 title: 'Estado', 
+                sorting: false,
                 options: statusOption
             }, created_at: {
                 create: false, 
                 edit: false, 
+                sorting: false,
                 title: 'Creación'
             }, updated_at: {
                 create: false, 
                 edit: false, 
+                sorting: false,
                 title: 'Actualización' 
             }
         }
