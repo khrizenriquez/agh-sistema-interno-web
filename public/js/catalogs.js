@@ -124,20 +124,15 @@ function showDiseaseCatalog () {
         actions: {
             listAction:     '/services/catalogs?action=disease_list',
             createAction:   '/services/catalogs?action=disease_create',
-            updateAction:   '/services/catalogs?action=disease_update',
-            deleteAction:   '/services/catalogs?action=disease_delete'
+            updateAction:   '/services/catalogs?action=disease_update'
         }, fields: {
             id: {
                 key: true,
                 list: false
-            }, townName: {
-                title: 'Nombre Municipio'
-            }, departmentId: {
-                title: 'Departamento', 
-                options: departmentsOption
+            }, name: {
+                title: 'Nombre enfermedad'
             }, status: {
                 title: 'Estado', 
-                sorting: false,
                 options: statusOption
             }, created_at: {
                 create: false, 

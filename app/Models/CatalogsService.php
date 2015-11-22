@@ -214,8 +214,50 @@ class CatalogsService {
                                 'Message'   => 'No esta loguedo'];
                 }
 
-                $result['Result']   = DiseaseType::getAllDiseases();
-                $result['Message']  = 'OK';
+                $result['Records']  = DiseaseType::getAllDiseaseType();
+                $result['Result']   = 'OK';
+
+                return $result;
+            break;
+            case 'disease_create':
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+
+                extract($parameters);
+                $result = [];
+
+                $userId = User::getUserId();
+
+                $result['Record']   = DiseaseType::createDiseaseType($name, $status, $userId);
+                $result['Result']   = 'OK';
+
+                return $result;
+            break;
+            case 'disease_update':
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+                extract($parameters);
+                $result = [];
+
+                $result['Records']  = DiseaseType::updateDisease($id, $name, $status);
+                $result['Result']   = 'OK';
+
+                return $result;
+            break;
+            case 'disease_delete':
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+                extract($parameters);
+                $result = [];
+
+                $result['Record']   = DiseaseType::deleteDiseaseType($id);
+                $result['Result']   = 'OK';
 
                 return $result;
             break;

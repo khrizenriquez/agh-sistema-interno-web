@@ -5,22 +5,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class ResponsibleType extends Model {
 
-    protected $table        = 'responsible_type';
-    protected $timestamp    = false;
+    protected $table    = 'responsible_type';
+    public $timestamps  = false;
 
     public static function createResponsibleType ($name, $status) {
-        $town = new ResponsibleType();
+        $responsible = new ResponsibleType();
 
         $date = date('Y-m-d H:i:s');
 
-        $town->name               = $name;
-        $town->status             = $status;
-        $town->created_at         = $date;
-        $town->updated_at         = $date;
+        $responsible->name               = $name;
+        $responsible->status             = $status;
+        $responsible->created_at         = $date;
+        $responsible->updated_at         = $date;
 
-        $town->save();
+        $responsible->save();
 
-        return $town;
+        return $responsible;
     }
 
     public static function getTotal () {
@@ -28,33 +28,31 @@ class ResponsibleType extends Model {
     }
 
     public static function getAllResponsibles () {
-        $model = ResponsibleType::where('status', '=', 1)
-                            ->orderBy('id', 'asc')
-                            ->get(['created_at', 'updated_at', 'name', 'id', 'status']);
-        return $model;
+        return ResponsibleType::orderBy('id', 'asc')
+                                ->get(['created_at', 'updated_at', 'name', 'id', 'status']);
     }
 
     public static function deleteResponsibleType ($id) {
-        $department = static::find($id);
+        $responsible = static::find($id);
 
-        $department->status     = 0;
-        $department->updated_at = date('Y-m-d H:i:s');
+        $responsible->status     = 0;
+        $responsible->updated_at = date('Y-m-d H:i:s');
 
-        $department->update();
+        $responsible->update();
 
-        return $department;
+        return $responsible;
     }
 
     public static function updateResponsibleType ($id, $name, $status) {
-        $department = static::find($id);
+        $responsible = static::find($id);
 
-        $department->name               = $name;
-        $department->status             = $status;
-        $department->updated_at         = date('Y-m-d H:i:s');
+        $responsible->name               = $name;
+        $responsible->status             = $status;
+        $responsible->updated_at         = date('Y-m-d H:i:s');
 
-        $department->update();
+        $responsible->update();
 
-        return $department;
+        return $responsible;
     }
 
 }
