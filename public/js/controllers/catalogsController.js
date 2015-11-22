@@ -17,28 +17,24 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 	$routeProvider
 		/*	Departments routes*/
 		.when('/departamentos', {
-			templateUrl: '/html/parts/catalogs/departments.html',
-			controller: 'DepartmentsCtrl'
+			templateUrl: '/html/parts/catalogs/departments.html'
 		})
 
 		/*	Towns routes*/
 		.when('/municipios', {
-			templateUrl: '/html/parts/catalogs/towns.html',
-			controller: 'TownsCtrl'
+			templateUrl: '/html/parts/catalogs/towns.html'
 		})
 
 
 		/*	responsible routes*/
 		.when('/responsables', {
-			templateUrl: '/html/parts/catalogs/responsible.html',
-			controller: 'ResponsibleCtrl'
+			templateUrl: '/html/parts/catalogs/responsible.html'
 		})
 
 
 		/*	disease routes*/
 		.when('/enfermedades', {
-			templateUrl: '/html/parts/catalogs/disease.html',
-			controller: 'DiseaseCtrl'
+			templateUrl: '/html/parts/catalogs/disease.html'
 		})
 
 		.otherwise({

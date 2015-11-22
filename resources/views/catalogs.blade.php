@@ -4,6 +4,7 @@
 
 @extends('layouts.layout')
 @section('styles')
+	<script src="/js/vendor/jtable/themes/metro/blue/jtable.min.css"></script>
 
 	<title>Catalogos</title>
 
@@ -37,7 +38,7 @@
 	</div>
 
 	<!-- Option modal -->
-	<div id="catalogsModal" class="modal fade" tabindex="-1" role="dialog" data-ng-tb-id ng-controller="DepartmentsCtrl">
+	<div id="catalogsModal" class="modal fade" tabindex="-1" role="dialog">
 	  	<div class="modal-dialog">
 			<div class="modal-content">
 		      	<div class="modal-header">
@@ -65,4 +66,6 @@
 <script src="/js/controllers/catalogsController.js"></script>
 <script src="/js/protos/login.js"></script>
 <script src="/js/login.js"></script>
+<script src="/js/vendor/jtable/jquery.jtable.min.js"></script>
+<script src="/js/vendor/jtable/localization/jquery.jtable.es.js"></script>
 @stop
