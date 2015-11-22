@@ -149,13 +149,56 @@ class CatalogsService {
 
             /*      RESPONSIBLES*/
             case 'responsible_list':
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+                extract($parameters);
                 $result = [];
+
+                $result['Records']  = ResponsibleType::getAllResponsibles();
+                $result['Result']   = 'OK';
+
+                return $result;
+            break;
+            case 'responsible_create':
                 if (!User::isLogged()) {
                     $result = ['Result'     => 'ERROR', 
                                 'Message'   => 'No esta loguedo'];
                 }
 
-                $result['Records']  = ResponsibleType::getAllResponsibles();
+                extract($parameters);
+                $result = [];
+
+                $userId = User::getUserId();
+
+                $result['Record']   = ResponsibleType::createResponsibleType($name, $status);
+                $result['Result']   = 'OK';
+
+                return $result;
+            break;
+            case 'responsible_update':
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+                extract($parameters);
+                $result = [];
+
+                $result['Records']  = ResponsibleType::updateResponsibleType($id, $name, $status);
+                $result['Result']   = 'OK';
+
+                return $result;
+            break;
+            case 'responsible_delete':
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+                extract($parameters);
+                $result = [];
+
+                $result['Record']   = ResponsibleType::deleteResponsibleType($id);
                 $result['Result']   = 'OK';
 
                 return $result;

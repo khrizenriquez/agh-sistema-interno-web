@@ -30,13 +30,15 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 
 		/*	responsible routes*/
 		.when('/responsables', {
-			templateUrl: '/html/parts/catalogs/responsible.html'
+			templateUrl: '/html/parts/catalogs/responsible.html', 
+			controller: 'ResponsibleCtrl'
 		})
 
 
 		/*	disease routes*/
 		.when('/enfermedades', {
-			templateUrl: '/html/parts/catalogs/disease.html'
+			templateUrl: '/html/parts/catalogs/disease.html', 
+			controller: 'DiseaseCtrl'
 		})
 
 		.otherwise({
@@ -49,6 +51,12 @@ catalogs.controller('DepartmentsCtrl', function ($scope) {
 });
 catalogs.controller('TownsCtrl', function ($scope) {
 	showTownsCatalog()
+});
+catalogs.controller('ResponsibleCtrl', function ($scope) {
+	showResponsibleCatalog()
+});
+catalogs.controller('DiseaseCtrl', function ($scope) {
+	showDiseaseCatalog()
 });
 
 catalogs.controller('HeaderCtrl', function ($scope, $location) {
