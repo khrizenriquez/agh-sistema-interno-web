@@ -28,7 +28,7 @@
 		        </tr>
 		    </thead>
 		    <tbody ng-repeat="allTowns in allTowns | filter:searchInput">
-		        <tr>
+		        <tr ng-class="{danger: department.status == 0}" ng-click="townAction(town.id, town.status)">
 		            <td>{{ allTowns.id }}</td>
 		            <td>{{ allTowns.name }}</td>
 		            <td>{{ allTowns.departmentName }}</td>

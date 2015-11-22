@@ -195,6 +195,19 @@ catalogs.controller('TownsCtrl', function ($scope, allTownsData) {
 					console.log(error);
 				});
 
+	$scope.townAction = function (id, status) {
+		if (status == 0) {
+			$('#catalogsModal #catalogsDesactivate').hide();
+			$('#catalogsModal #catalogsActivate').show();
+		} else {
+			$('#catalogsModal #catalogsActivate').hide();
+			$('#catalogsModal #catalogsDesactivate').show();
+		}
+		$('#catalogsModal').attr('data-tb-id', id);
+		$('#catalogsModal').modal('hide');
+		$('#catalogsModal').modal('show');
+	}
+
 	$scope.listAllTowns = function () {
 		console.log('Puchamon');
 	}
