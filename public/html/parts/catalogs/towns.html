@@ -4,36 +4,5 @@
         <h3 class="panel-title">Municipios</h3>
     </div>
 
-	<div class="form-horizontal panel-body">
-		<div class="form-group">
-            <div class="col-xs-12 col-md-4">
-                <input type="text" class="form-control" id="search" placeholder="Buscar" ng-model="searchInput" />
-            </div>
-        </div>
-
-        <div class="form-group">
-        	<div class="col-xs-12 col-md-8">
-        		<button type="button" class="btn btn-success btn-raised">Crear</button>
-        	</div>
-        </div>
-	</div>
-
-    <div class="panel-body">
-        <table class="table table-striped table-hover">
-		    <thead>
-		        <tr>
-		            <th>#</th>
-		            <th>Nombre municipio</th>
-		            <th>Deparamento</th>
-		        </tr>
-		    </thead>
-		    <tbody ng-repeat="allTowns in allTowns | filter:searchInput">
-		        <tr ng-class="{danger: department.status == 0}" ng-click="townAction(town.id, town.status)">
-		            <td>{{ allTowns.id }}</td>
-		            <td>{{ allTowns.name }}</td>
-		            <td>{{ allTowns.departmentName }}</td>
-		        </tr>
-		    </tbody>
-		</table>
-    </div>
+    <div class="panel-body"></div>
 </div>

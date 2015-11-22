@@ -59,20 +59,3 @@ catalogs.controller('HeaderCtrl', function ($scope, $location) {
 		return (path === $location.path()) ? true : false;
 	};
 });
-
-catalogs.controller('DepartmentsCtrl', function ($scope, allDepartmentsData) {
-	$scope.allDepartments;
-});
-
-
-catalogs.controller('TownsCtrl', function ($scope, allTownsData) {
-	$scope.allTowns;
-});
-
-catalogs.controller('ResponsibleCtrl', function ($scope, allResponsiblesData) {
-	$scope.allResponsibleTypes;
-});
-
-catalogs.controller('DiseaseCtrl', function ($scope, allDiseaseData) {
-	$scope.allDiseaseTypes;
-});
