@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Department;
 use Illuminate\Support\Facades\Hash;
 
 class PageController extends Controller {
@@ -41,6 +42,7 @@ class PageController extends Controller {
                 return view('profile', array('user' => $user))->with($params);*/
             break;
             case 'catalogos':
+                $params['departments'] = Department::getAllDepartments();
                 return (User::isLogged()) ? view('catalogs')->with($params) : redirect('/inicio');
             break;
             case 'pacientes':

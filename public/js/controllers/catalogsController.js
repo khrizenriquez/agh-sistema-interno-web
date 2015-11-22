@@ -23,7 +23,8 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 
 		/*	Towns routes*/
 		.when('/municipios', {
-			templateUrl: '/html/parts/catalogs/towns.html'
+			templateUrl: '/html/parts/catalogs/towns.html', 
+			controller: 'TownsCtrl'
 		})
 
 
@@ -45,6 +46,9 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 
 catalogs.controller('DepartmentsCtrl', function ($scope) {
 	showDepartmentsCatalog()
+});
+catalogs.controller('TownsCtrl', function ($scope) {
+	showTownsCatalog()
 });
 
 catalogs.controller('HeaderCtrl', function ($scope, $location) {

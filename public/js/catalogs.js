@@ -39,6 +39,40 @@ function showDepartmentsCatalog () {
     });
     $('#departmentCatalog').jtable('load');
 }
-function showTownsCatalog () {}
+function showTownsCatalog () {
+	$('#townCatalog').jtable({
+        title: ' ', 
+        sorting: true,
+        defaultSorting: 'departmentName ASC', //Set default sorting
+        actions: {
+            listAction: 	'/services/catalogs?action=town_list',
+            createAction: 	'/services/catalogs?action=town_create',
+            updateAction: 	'/services/catalogs?action=town_update',
+            deleteAction: 	'/services/catalogs?action=town_delete'
+        }, fields: {
+            id: {
+                key: true,
+                list: false
+            }, townName: {
+                title: 'Nombre Municipio'
+            }, departmentId: {
+                title: 'Departamento', 
+                options: departmentsOption
+            }, status: {
+                title: 'Estado', 
+                options: statusOption
+            }, created_at: {
+                create: false, 
+                edit: false, 
+                title: 'Creación'
+            }, updated_at: {
+                create: false, 
+                edit: false, 
+                title: 'Actualización' 
+            }
+        }
+    });
+    $('#townCatalog').jtable('load');
+}
 //function showDepartmentsCatalog () {}
 //function showDepartmentsCatalog () {}

@@ -64,6 +64,17 @@
 @stop
 
 @section('scripts')
+<script>
+	var departmentsOption = {
+      @foreach($departments as $key => $r)
+        @if ($key == 0)
+          '{{$r['id']}}': '{{$r['name']}}'
+        @else
+          , '{{$r['id']}}': '{{$r['name']}}'
+        @endif
+      @endforeach
+    };
+</script>
 <script src="/js/catalogs.js"></script>
 <script src="/js/models/catalogsService.js"></script>
 <script src="/js/controllers/catalogsController.js"></script>

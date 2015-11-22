@@ -44,10 +44,11 @@ class Department extends Model {
         return $department;
     }
 
-    public static function updateDepartmentDetail ($departmentId, $name) {
+    public static function updateDepartmentDetail ($departmentId, $name, $status) {
         $department = static::find($departmentId);
 
         $department->name       = $name;
+        $department->status     = $status;
         $department->updated_at = date('Y-m-d H:i:s');
 
         $department->update();

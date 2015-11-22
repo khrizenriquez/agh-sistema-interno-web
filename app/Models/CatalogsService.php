@@ -66,7 +66,7 @@ class CatalogsService {
                 extract($parameters);
                 $result = [];
 
-                $result['Records']  = Department::updateDepartmentDetail($id, $name);;
+                $result['Records']  = Department::updateDepartmentDetail($id, $name, $status);
                 $result['Result']   = 'OK';
 
                 return $result;
@@ -87,15 +87,61 @@ class CatalogsService {
 
 
             /*      TOWNS*/
+            case 'town_create':
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+
+                extract($parameters);
+                $result = [];
+
+                $userId = User::getUserId();
+
+                $result['Record']   = Town::createTown($townName, $status, $userId, $departmentId);
+                $result['Result']   = 'OK';
+
+                return $result;
+            break;
             case 'town_list':
                 if (!User::isLogged()) {
                     $result = ['Result'     => 'ERROR', 
                                 'Message'   => 'No esta loguedo'];
                 }
+                extract($parameters);
                 $result = [];
 
-                $result['Result']   = Town::getAllTowns();
-                $result['Message']  = 'OK';
+                $sort = (isset($jtSorting)) ? $jtSorting : 'departmentName ASC';
+
+                $result['Records']  = Town::getAllTowns($sort);
+                $result['Result']   = 'OK';
+
+                return $result;
+            break;
+            case 'town_update':
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+                $tmpArray = $parameters;
+                extract($parameters);
+                $result = [];
+
+                $result['Records']  = Town::updateTownDetail($id, $townName, $departmentId, $status);
+                $result['Result']   = 'OK';
+
+                return $result;
+            break;
+            case 'town_delete':
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+                extract($parameters);
+                $result = [];
+
+                $result['Record']   = Town::deleteTownDetail($id);
+                $result['Result']   = 'OK';
 
                 return $result;
             break;
@@ -109,8 +155,8 @@ class CatalogsService {
                                 'Message'   => 'No esta loguedo'];
                 }
 
-                $result['Result']   = ResponsibleType::getAllResponsibles();
-                $result['Message']  = 'OK';
+                $result['Records']  = ResponsibleType::getAllResponsibles();
+                $result['Result']   = 'OK';
 
                 return $result;
             break;
