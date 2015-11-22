@@ -32,7 +32,7 @@ class Department extends Model {
         $department = static::find($departmentId);
 
         $department->name       = $name;
-        $department->updated_at = date('Y-m-d h:i:s');
+        $department->updated_at = date('Y-m-d H:i:s');
 
         $department->update();
 
@@ -43,7 +43,7 @@ class Department extends Model {
         $department = static::find($departmentId);
 
         $department->status     = 0;
-        $department->updated_at = date('Y-m-d h:i:s');
+        $department->updated_at = date('Y-m-d H:i:s');
 
         $department->update();
 
@@ -54,7 +54,7 @@ class Department extends Model {
         $department = static::find($departmentId);
 
         $department->status     = 1;
-        $department->updated_at = date('Y-m-d h:i:s');
+        $department->updated_at = date('Y-m-d H:i:s');
 
         $department->update();
 

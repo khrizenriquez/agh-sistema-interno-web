@@ -23,18 +23,18 @@ class CatalogsService {
                                 'Message'   => 'No esta loguedo'];
                 }
 
-                $result['Result']  = 'OK';
-                $result['Records']   = Department::getAllDepartments();
+                $result['Result']   = 'OK';
+                $result['Records']  = Department::getAllDepartments();
 
                 return $result;
             break;
             case 'department':
-                extract($parameters);
-                $result = [];
                 if (!User::isLogged()) {
                     $result = ['Result'     => 'ERROR', 
                                 'Message'   => 'No esta loguedo'];
                 }
+                extract($parameters);
+                $result = [];
 
                 $result['Result']   = Department::getDepartmentDetail($department);
                 $result['Message']  = 'OK';
@@ -42,35 +42,35 @@ class CatalogsService {
                 return $result;
             break;
             case 'department_create':
-                if(isset($parameters['email'])){
-                    return json_encode($this->emailExists($parameters['email']));
-                }else{
-                    return json_encode(SiteService::MissingParameters());
-                }
-            break;
-            case 'department_update':
-                extract($parameters);
-                $result = [];
                 if (!User::isLogged()) {
                     $result = ['Result'     => 'ERROR', 
                                 'Message'   => 'No esta loguedo'];
                 }
+            break;
+            case 'department_update':
+                if (!User::isLogged()) {
+                    $result = ['Result'     => 'ERROR', 
+                                'Message'   => 'No esta loguedo'];
+                }
+                $tmpArray = $parameters;
+                extract($parameters);
+                $result = [];
 
-                $result['Result']   = Department::updateDepartmentDetail($department, $name);
-                $result['Message']  = 'OK';
+                $result['Records']  = Department::updateDepartmentDetail($id, $name);;
+                $result['Result']   = 'OK';
 
                 return $result;
             break;
             case 'department_delete':
-                extract($parameters);
-                $result = [];
                 if (!User::isLogged()) {
                     $result = ['Result'     => 'ERROR', 
                                 'Message'   => 'No esta loguedo'];
                 }
+                extract($parameters);
+                $result = [];
 
-                $result['Result']   = Department::deleteDepartmentDetail($department);
-                $result['Message']  = 'OK';
+                $result['Records']  = Department::deleteDepartmentDetail($id);
+                $result['Result']   = 'OK';
 
                 return $result;
             break;
@@ -78,11 +78,11 @@ class CatalogsService {
 
             /*      TOWNS*/
             case 'town_list':
-                $result = [];
                 if (!User::isLogged()) {
                     $result = ['Result'     => 'ERROR', 
                                 'Message'   => 'No esta loguedo'];
                 }
+                $result = [];
 
                 $result['Result']   = Town::getAllTowns();
                 $result['Message']  = 'OK';

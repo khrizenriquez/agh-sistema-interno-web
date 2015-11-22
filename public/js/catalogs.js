@@ -28,9 +28,11 @@ function showDepartmentsCatalog () {
                 title: 'Estado', 
                 options: statusOption
             }, created_at: {
-                title: 'Creación'
+                title: 'Creación', 
+                edit: false
             }, updated_at: {
-                title: 'Actualización'
+                title: 'Actualización', 
+                edit: false
             }
         }
     });
