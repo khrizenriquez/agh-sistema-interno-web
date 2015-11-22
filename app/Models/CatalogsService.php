@@ -23,8 +23,8 @@ class CatalogsService {
                                 'Message'   => 'No esta loguedo'];
                 }
 
-                $result['Result']   = Department::getAllDepartments();
-                $result['Message']  = 'OK';
+                $result['Result']  = 'OK';
+                $result['Records']   = Department::getAllDepartments();
 
                 return $result;
             break;
@@ -70,19 +70,6 @@ class CatalogsService {
                 }
 
                 $result['Result']   = Department::deleteDepartmentDetail($department);
-                $result['Message']  = 'OK';
-
-                return $result;
-            break;
-            case 'department_active':
-                extract($parameters);
-                $result = [];
-                if (!User::isLogged()) {
-                    $result = ['Result'     => 'ERROR', 
-                                'Message'   => 'No esta loguedo'];
-                }
-
-                $result['Result']   = Department::activeDepartmentDetail($department);
                 $result['Message']  = 'OK';
 
                 return $result;

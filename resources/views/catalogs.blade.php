@@ -4,7 +4,7 @@
 
 @extends('layouts.layout')
 @section('styles')
-	<script src="/js/vendor/jtable/themes/metro/blue/jtable.min.css"></script>
+	<link rel="stylesheet" href="/js/vendor/jtable/themes/metro/blue/jtable.min.css" />
 
 	<title>Catalogos</title>
 
@@ -62,10 +62,14 @@
 @stop
 
 @section('scripts')
+<script src="/js/catalogs.js"></script>
 <script src="/js/models/catalogsService.js"></script>
 <script src="/js/controllers/catalogsController.js"></script>
 <script src="/js/protos/login.js"></script>
 <script src="/js/login.js"></script>
+
+<script src="/js/vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="/js/vendor/jtable/jquery.jtable.min.js"></script>
-<script src="/js/vendor/jtable/localization/jquery.jtable.es.js"></script>
+<!-- <script src="/js/vendor/jtable/localization/jquery.jtable.es.js"></script> -->
+
 @stop

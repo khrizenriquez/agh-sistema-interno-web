@@ -17,7 +17,8 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 	$routeProvider
 		/*	Departments routes*/
 		.when('/departamentos', {
-			templateUrl: '/html/parts/catalogs/departments.html'
+			templateUrl: '/html/parts/catalogs/departments.html',
+			controller: 'DepartmentsCtrl'
 		})
 
 		/*	Towns routes*/
@@ -40,6 +41,10 @@ catalogs.config(function ($routeProvider, $httpProvider) {
 		.otherwise({
 			redirectTo: "/departamentos"
 		});
+});
+
+catalogs.controller('DepartmentsCtrl', function ($scope) {
+	showDepartmentsCatalog()
 });
 
 catalogs.controller('HeaderCtrl', function ($scope, $location) {
