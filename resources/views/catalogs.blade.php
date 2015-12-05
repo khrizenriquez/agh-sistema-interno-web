@@ -83,6 +83,6 @@
 
 <script src="/js/vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="/js/vendor/jtable/jquery.jtable.min.js"></script>
-<!-- <script src="/js/vendor/jtable/localization/jquery.jtable.es.js"></script> -->
+<script src="/js/vendor/jtable/localization/jquery.jtable.es.js"></script>
 
 @stop

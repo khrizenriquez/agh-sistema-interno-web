@@ -4,10 +4,7 @@
 
 'use strict';
 
-var statusOption = {
-	0: 'Inactivo', 
-	1: 'Activo'
-}
+var statusOption = { 0: 'Inactivo', 1: 'Activo' };
 
 function showDepartmentsCatalog () {
 	$('#departmentCatalog').jtable({

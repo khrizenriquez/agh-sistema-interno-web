@@ -206,10 +206,10 @@ module.exports = {
 
       // Hide by shifting to the left so we
       // can still trigger events
-      $file.css({
+      /*$file.css({
         position: 'absolute',
         left: '-9999px'
-      });
+      });*/
 
       $wrap.append($input, (isIE ? $label : $button)).insertAfter($file);
 
