@@ -28,11 +28,13 @@ function showDepartmentsCatalog () {
             }, created_at: {
                 create: false, 
                 edit: false, 
+                list: false,
                 sorting: false,
                 title: 'Creación'
             }, updated_at: {
                 create: false, 
                 edit: false, 
+                list: false,
                 sorting: false,
                 title: 'Actualización' 
             }
@@ -66,11 +68,13 @@ function showTownsCatalog () {
             }, created_at: {
                 create: false, 
                 edit: false, 
+                list: false,
                 sorting: false,
                 title: 'Creación'
             }, updated_at: {
                 create: false, 
-                edit: false, 
+                edit: false,
+                list: false, 
                 sorting: false,
                 title: 'Actualización' 
             }
@@ -102,10 +106,12 @@ function showResponsibleCatalog () {
             }, created_at: {
                 create: false, 
                 edit: false, 
+                list: false,
                 sorting: false,
                 title: 'Creación'
             }, updated_at: {
                 create: false, 
+                list: false,
                 edit: false, 
                 sorting: false,
                 title: 'Actualización' 
@@ -137,11 +143,13 @@ function showDiseaseCatalog () {
             }, created_at: {
                 create: false, 
                 edit: false, 
+                list: false,
                 sorting: false,
                 title: 'Creación'
             }, updated_at: {
                 create: false, 
                 edit: false, 
+                list: false,
                 sorting: false,
                 title: 'Actualización' 
             }
