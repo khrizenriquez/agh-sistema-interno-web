@@ -11,7 +11,7 @@ class ResponsibleType extends Model {
     public static function createResponsibleType ($name, $status) {
         $responsible = new ResponsibleType();
 
-        $date = date('Y-m-d H:i:s');
+        $date = GeneralValues::getActualDate();
 
         $responsible->name               = $name;
         $responsible->status             = $status;
@@ -45,7 +45,7 @@ class ResponsibleType extends Model {
         $responsible = static::find($id);
 
         $responsible->status     = 0;
-        $responsible->updated_at = date('Y-m-d H:i:s');
+        $responsible->updated_at = GeneralValues::getActualDate();
 
         $responsible->update();
 
@@ -57,7 +57,7 @@ class ResponsibleType extends Model {
 
         $responsible->name               = $name;
         $responsible->status             = $status;
-        $responsible->updated_at         = date('Y-m-d H:i:s');
+        $responsible->updated_at         = GeneralValues::getActualDate();
 
         $responsible->update();
 

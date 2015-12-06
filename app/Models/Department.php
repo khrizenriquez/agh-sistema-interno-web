@@ -35,7 +35,7 @@ class Department extends Model {
     public static function createDepartment ($name, $status, $userId) {
         $department = new Department();
 
-        $date = date('Y-m-d H:i:s');
+        $date = GeneralValues::getActualDate();
 
         $department->name               = $name;
         $department->status             = $status;
@@ -62,7 +62,7 @@ class Department extends Model {
 
         $department->name       = $name;
         $department->status     = $status;
-        $department->updated_at = date('Y-m-d H:i:s');
+        $department->updated_at = GeneralValues::getActualDate();
 
         $department->update();
 
@@ -73,7 +73,7 @@ class Department extends Model {
         $department = static::find($departmentId);
 
         $department->status     = 0;
-        $department->updated_at = date('Y-m-d H:i:s');
+        $department->updated_at = GeneralValues::getActualDate();
 
         $department->update();
 
@@ -84,7 +84,7 @@ class Department extends Model {
         $department = static::find($departmentId);
 
         $department->status     = 1;
-        $department->updated_at = date('Y-m-d H:i:s');
+        $department->updated_at = GeneralValues::getActualDate();
 
         $department->update();
 

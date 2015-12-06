@@ -11,7 +11,7 @@ class Town extends Model {
     public static function createTown ($name, $status, $userId, $departmentId) {
         $town = new Town();
 
-        $date = date('Y-m-d H:i:s');
+        $date = GeneralValues::getActualDate();
 
         $town->name               = $name;
         $town->status             = $status;
@@ -63,7 +63,7 @@ class Town extends Model {
         $department = static::find($id);
 
         $department->status     = 0;
-        $department->updated_at = date('Y-m-d H:i:s');
+        $department->updated_at = GeneralValues::getActualDate();
 
         $department->update();
 
@@ -76,7 +76,7 @@ class Town extends Model {
         $department->name               = $name;
         $department->status             = $status;
         $department->fk_town_department = $departmentId;
-        $department->updated_at         = date('Y-m-d H:i:s');
+        $department->updated_at         = GeneralValues::getActualDate();
 
         $department->update();
 

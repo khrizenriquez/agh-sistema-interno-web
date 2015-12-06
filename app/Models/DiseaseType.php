@@ -15,7 +15,7 @@ class DiseaseType extends Model {
     public static function createDiseaseType ($name, $status, $userId) {
         $disease = new DiseaseType();
 
-        $date = date('Y-m-d H:i:s');
+        $date = GeneralValues::getActualDate();
 
         $disease->name                  = $name;
         $disease->status                = $status;
@@ -47,7 +47,7 @@ class DiseaseType extends Model {
         $disease = static::find($id);
 
         $disease->status     = 0;
-        $disease->updated_at = date('Y-m-d H:i:s');
+        $disease->updated_at = GeneralValues::getActualDate();
 
         $disease->update();
 
@@ -59,7 +59,7 @@ class DiseaseType extends Model {
 
         $disease->name          = $name;
         $disease->status        = $status;
-        $disease->updated_at    = date('Y-m-d H:i:s');
+        $disease->updated_at    = GeneralValues::getActualDate();
 
         $disease->update();
 
