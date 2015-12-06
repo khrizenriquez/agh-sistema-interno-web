@@ -1,10 +1,6 @@
-<?php
+<?php namespace App\Http\Controllers;
 
-namespace App\Http\Controllers;
-
-use App\Models\User;
-
-class PageController extends Controller {
+class GeneralValues extends Controller {
     public static $days     = ["Domingo", 
                                 "Lunes", 
                                 "Martes", 
@@ -24,5 +20,9 @@ class PageController extends Controller {
                                 "Octubre", 
                                 "Noviembre", 
                                 "Diciembre"];
+
+    public static function getActualDate () {
+        return date('Y-m-d H:i:s');
+    }
 
 }
