@@ -34,6 +34,15 @@ class DiseaseType extends Model {
         return $model;
     }
 
+    public static function getPaginateDiseaseType ($skip = NULL, $take = NULL, $orderBy = 'name ASC') {
+        $sortSplit = explode(' ', $orderBy);
+        return static::select('created_at', 'updated_at', 'name', 'id', 'status')
+                        ->orderBy($sortSplit[0], $sortSplit[1])
+                        ->skip($skip)
+                        ->take($take)
+                        ->get();
+    }
+
     public static function deleteDiseaseType ($id) {
         $disease = static::find($id);
 

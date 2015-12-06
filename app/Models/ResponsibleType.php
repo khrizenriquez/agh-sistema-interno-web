@@ -24,12 +24,21 @@ class ResponsibleType extends Model {
     }
 
     public static function getTotal () {
-        return ResponsibleType::all()->count();
+        return static::all()->count();
     }
 
     public static function getAllResponsibles () {
-        return ResponsibleType::orderBy('id', 'asc')
+        return static::orderBy('id', 'asc')
                                 ->get(['created_at', 'updated_at', 'name', 'id', 'status']);
+    }
+
+    public static function getPaginateResponsibles ($skip = NULL, $take = NULL, $orderBy = 'name ASC') {
+        $sortSplit = explode(' ', $orderBy);
+        return static::select('created_at', 'updated_at', 'name', 'id', 'status')
+                                ->orderBy($sortSplit[0], $sortSplit[1])
+                                ->skip($skip)
+                                ->take($take)
+                                ->get();
     }
 
     public static function deleteResponsibleType ($id) {

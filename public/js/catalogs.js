@@ -104,10 +104,10 @@ function showResponsibleCatalog () {
                 list: false
             }, name: {
                 title: 'Tipo de responsable', 
-                sorting: false,
+                sorting: true,
             }, status: {
                 title: 'Estado', 
-                sorting: false,
+                sorting: true,
                 options: statusOption
             }, created_at: {
                 create: false, 
@@ -143,11 +143,11 @@ function showDiseaseCatalog () {
                 list: false
             }, name: {
                 title: 'Nombre enfermedad', 
-                sorting: false,
+                sorting: true,
             }, status: {
                 title: 'Estado', 
                 options: statusOption, 
-                sorting: false,
+                sorting: true,
             }, created_at: {
                 create: false, 
                 edit: false, 

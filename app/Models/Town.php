@@ -43,7 +43,7 @@ class Town extends Model {
         return $model;
     }
 
-    public static function getPaginateTowns ($skip = NULL, $take = NULL, $orderBy = 'name ASC') {
+    public static function getPaginateTowns ($skip = NULL, $take = NULL, $orderBy = 'townName ASC') {
         $sortSplit  = explode(' ', $orderBy);
         return Town::join('department', 'town.fk_town_department', '=', 'department.id')
                     ->select('town.created_at', 
@@ -57,11 +57,6 @@ class Town extends Model {
                     ->skip($skip)
                     ->take($take)
                     ->get();
-    }
-
-    public static function getAllTownsCount () {
-        return Town::join('department', 'town.fk_town_department', '=', 'department.id')
-                    ->count();
     }
 
     public static function deleteTownDetail ($id) {

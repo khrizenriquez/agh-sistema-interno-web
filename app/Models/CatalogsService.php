@@ -126,7 +126,7 @@ class CatalogsService {
 
                 $result['Records']          = Town::getPaginateTowns($jtStartIndex, $jtPageSize, $jtSorting);
                 $result['Result']           = 'OK';
-                $result['TotalRecordCount'] = Town::getAllTownsCount();
+                $result['TotalRecordCount'] = Town::getTotal();
 
                 return $result;
             break;
@@ -166,10 +166,14 @@ class CatalogsService {
                                 'Message'   => 'No esta loguedo'];
                 }
                 extract($parameters);
+                $jtStartIndex   = (isset($jtStartIndex)) ? $jtStartIndex: 0;
+                $jtPageSize     = (isset($jtPageSize)) ? $jtPageSize: 10;
+                $jtSorting      = (isset($jtSorting)) ? $jtSorting: 'name ASC';
                 $result = [];
 
-                $result['Records']  = ResponsibleType::getAllResponsibles();
-                $result['Result']   = 'OK';
+                $result['Records']          = ResponsibleType::getPaginateResponsibles($jtStartIndex, $jtPageSize, $jtSorting);
+                $result['Result']           = 'OK';
+                $result['TotalRecordCount'] = ResponsibleType::getTotal();
 
                 return $result;
             break;
@@ -226,8 +230,14 @@ class CatalogsService {
                                 'Message'   => 'No esta loguedo'];
                 }
 
-                $result['Records']  = DiseaseType::getAllDiseaseType();
-                $result['Result']   = 'OK';
+                extract($parameters);
+                $jtStartIndex   = (isset($jtStartIndex)) ? $jtStartIndex: 0;
+                $jtPageSize     = (isset($jtPageSize)) ? $jtPageSize: 10;
+                $jtSorting      = (isset($jtSorting)) ? $jtSorting: 'name ASC';
+
+                $result['Records']          = DiseaseType::getPaginateDiseaseType($jtStartIndex, $jtPageSize, $jtSorting);
+                $result['Result']           = 'OK';
+                $result['TotalRecordCount'] = DiseaseType::getTotal();
 
                 return $result;
             break;
