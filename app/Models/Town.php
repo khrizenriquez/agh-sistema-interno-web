@@ -43,6 +43,27 @@ class Town extends Model {
         return $model;
     }
 
+    public static function getPaginateTowns ($skip = NULL, $take = NULL, $orderBy = 'name ASC') {
+        $sortSplit  = explode(' ', $orderBy);
+        return Town::join('department', 'town.fk_town_department', '=', 'department.id')
+                    ->select('town.created_at', 
+                            'town.updated_at', 
+                            'town.name as townName', 
+                            'town.status', 
+                            'town.id', 
+                            'department.id as departmentId', 
+                            'department.name as departmentName')
+                    ->orderBy($sortSplit[0], $sortSplit[1])
+                    ->skip($skip)
+                    ->take($take)
+                    ->get();
+    }
+
+    public static function getAllTownsCount () {
+        return Town::join('department', 'town.fk_town_department', '=', 'department.id')
+                    ->count();
+    }
+
     public static function deleteTownDetail ($id) {
         $department = static::find($id);
 

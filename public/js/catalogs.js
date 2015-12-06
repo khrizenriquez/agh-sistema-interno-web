@@ -8,8 +8,11 @@ var statusOption = { 0: 'Inactivo', 1: 'Activo' };
 
 function showDepartmentsCatalog () {
 	$('#departmentCatalog').jtable({
-        title: ' ', 
         defaultSorting: 'name ASC', 
+        pageSize:       10, 
+        paging:         true, 
+        sorting:        true, 
+        title:          ' ', 
         actions: {
             listAction: 	'/services/catalogs?action=department_list',
             createAction: 	'/services/catalogs?action=department_create',
@@ -23,7 +26,7 @@ function showDepartmentsCatalog () {
                 title: 'Nombre departamento'
             }, status: {
                 title: 'Estado', 
-                sorting: false,
+                sorting: true,
                 options: statusOption
             }, created_at: {
                 create: false, 
@@ -44,9 +47,11 @@ function showDepartmentsCatalog () {
 }
 function showTownsCatalog () {
 	$('#townCatalog').jtable({
-        title: ' ', 
-        sorting: true,
         defaultSorting: 'departmentName ASC', 
+        pageSize:       10, 
+        paging:         true, 
+        sorting:        true,
+        title:          ' ', 
         actions: {
             listAction: 	'/services/catalogs?action=town_list',
             createAction: 	'/services/catalogs?action=town_create',
@@ -58,9 +63,8 @@ function showTownsCatalog () {
                 list: false
             }, townName: {
                 title: 'Nombre Municipio'
-            }, departmentId: {
-                title: 'Departamento', 
-                options: departmentsOption
+            }, departmentName: {
+                title: 'Departamento'
             }, status: {
                 title: 'Estado', 
                 sorting: false,
@@ -84,9 +88,11 @@ function showTownsCatalog () {
 }
 function showResponsibleCatalog () {
     $('#responsibleCatalog').jtable({
-        title: ' ', 
-        sorting: true,
-        defaultSorting: 'departmentName ASC', //Set default sorting
+        defaultSorting: 'departmentName ASC',
+        pageSize:       10, 
+        paging:         true, 
+        sorting:        true,
+        title:          ' ', 
         actions: {
             listAction:     '/services/catalogs?action=responsible_list',
             createAction:   '/services/catalogs?action=responsible_create',
@@ -122,9 +128,11 @@ function showResponsibleCatalog () {
 }
 function showDiseaseCatalog () {
     $('#diseaseCatalog').jtable({
-        title: ' ', 
-        sorting: true,
-        defaultSorting: 'departmentName ASC', //Set default sorting
+        defaultSorting: 'departmentName ASC',
+        pageSize:       10, 
+        paging:         true, 
+        sorting:        true,
+        title:          ' ', 
         actions: {
             listAction:     '/services/catalogs?action=disease_list',
             createAction:   '/services/catalogs?action=disease_create',

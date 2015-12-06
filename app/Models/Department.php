@@ -13,10 +13,23 @@ class Department extends Model {
     }
 
     public static function getAllDepartments () {
-        return static::orderBy('id', 'asc')
-                    ->get([
-                        'created_at', 'updated_at', 'name', 'id', 'status'
-                    ]);
+        return static::select('created_at', 'updated_at', 'name', 'id', 'status')
+                    ->orderBy('name', 'ASC')
+                    ->get();
+    }
+
+    public static function getPaginateDepartments ($skip = NULL, $take = NULL, $orderBy = 'name ASC') {
+        $order = explode(' ', $orderBy);
+
+        return static::select('created_at', 'updated_at', 'name', 'id', 'status')
+                    ->orderBy($order[0], $order[1])
+                    ->skip($skip)
+                    ->take($take)
+                    ->get();
+    }
+
+    public static function getAllDepartmentsCount () {
+        return static::all()->count();
     }
 
     public static function createDepartment ($name, $status, $userId) {

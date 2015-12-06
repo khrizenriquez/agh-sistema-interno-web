@@ -23,8 +23,15 @@ class CatalogsService {
                                 'Message'   => 'No esta loguedo'];
                 }
 
-                $result['Result']   = 'OK';
-                $result['Records']  = Department::getAllDepartments();
+                extract($parameters);
+
+                $jtStartIndex   = (isset($jtStartIndex)) ? $jtStartIndex: 0;
+                $jtPageSize     = (isset($jtPageSize)) ? $jtPageSize: 10;
+                $jtSorting      = (isset($jtSorting)) ? $jtSorting: 'name ASC';
+
+                $result['Result']           = 'OK';
+                $result['Records']          = Department::getPaginateDepartments($jtStartIndex, $jtPageSize, $jtSorting);
+                $result['TotalRecordCount'] = Department::getAllDepartmentsCount();
 
                 return $result;
             break;
@@ -94,12 +101,13 @@ class CatalogsService {
                 }
 
                 extract($parameters);
+
                 $result = [];
 
                 $userId = User::getUserId();
 
-                $result['Record']   = Town::createTown($townName, $status, $userId, $departmentId);
-                $result['Result']   = 'OK';
+                $result['Record'] = Town::createTown($townName, $status, $userId, $departmentId);
+                $result['Result'] = 'OK';
 
                 return $result;
             break;
@@ -109,12 +117,16 @@ class CatalogsService {
                                 'Message'   => 'No esta loguedo'];
                 }
                 extract($parameters);
+                $jtStartIndex   = (isset($jtStartIndex)) ? $jtStartIndex: 0;
+                $jtPageSize     = (isset($jtPageSize)) ? $jtPageSize: 10;
+                $jtSorting      = (isset($jtSorting)) ? $jtSorting: 'departmentName ASC';
                 $result = [];
 
-                $sort = (isset($jtSorting)) ? $jtSorting : 'departmentName ASC';
+                $sort = (isset($jtSorting)) ? $jtSorting : ' ASC';
 
-                $result['Records']  = Town::getAllTowns($sort);
-                $result['Result']   = 'OK';
+                $result['Records']          = Town::getPaginateTowns($jtStartIndex, $jtPageSize, $jtSorting);
+                $result['Result']           = 'OK';
+                $result['TotalRecordCount'] = Town::getAllTownsCount();
 
                 return $result;
             break;
