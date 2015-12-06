@@ -1,7 +1,3 @@
-@if(!App\Models\User::isLogged())
-<?php redirect('/inicio'); ?>
-@endif
-
 @extends('layouts.layout')
 @section('styles')
 	<link rel="stylesheet" href="/styles/catalogs.css">
@@ -38,43 +34,10 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Option modal -->
-	<div id="catalogsModal" class="modal fade" tabindex="-1" role="dialog">
-	  	<div class="modal-dialog">
-			<div class="modal-content">
-		      	<div class="modal-header">
-		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        	<h3 class="modal-title">¿Qué deseas hacer?</h3>
-		      	</div>
-
-		      	<div class="modal-body">
-		      		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic at commodi in tempore perferendis sequi ullam repudiandae dolores porro, quos provident velit consectetur dolore quibusdam asperiores, fugiat tempora possimus. Illum.</p>
-		      	</div>
-
-		      	<div class="modal-footer">
-		        	<button role="button" class="btn btn-info" ng-click="seeDepartment()">Ver</button>
-		        	<button type="button" class="btn btn-default" ng-click="updateDepartment()">Editar</button>
-		        	<button id="catalogsDesactivate" type="button" class="btn btn-danger" ng-click="deleteDepartment()">Desactivar</button>
-		        	<button id="catalogsActivate" type="button" class="btn btn-success" ng-click="activeDepartment()">Activar</button>
-		      	</div>
-		    </div>
-	  	</div>
-	</div>
 @stop
 
 @section('scripts')
-<script>
-	var departmentsOption = {
-      @foreach($departments as $key => $r)
-        @if ($key == 0)
-          '{{$r['id']}}': '{{$r['name']}}'
-        @else
-          , '{{$r['id']}}': '{{$r['name']}}'
-        @endif
-      @endforeach
-    };
-</script>
+
 <script src="/js/catalogs.js"></script>
 <script src="/js/models/catalogsService.js"></script>
 <script src="/js/controllers/catalogsController.js"></script>
