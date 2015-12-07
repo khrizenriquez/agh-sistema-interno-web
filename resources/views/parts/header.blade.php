@@ -16,7 +16,7 @@
     <?php 
       $menu = [
                 ['/catalogos', 'Catálogos'], 
-                ['/perfil', 'Perfil'], 
+                /*['/perfil', 'Perfil'], */
                 ['/pacientes', 'Pacientes']
               ];
     ?>
