@@ -1,8 +1,8 @@
-<?php
+<?php namespace App\Http\Controllers;
 
-namespace App\Http\Controllers;
 use App\Models\AuthenticationService;
 use App\Models\CatalogsService;
+use App\Models\PatientsService;
 
 use App\Models\User;
 
@@ -22,10 +22,21 @@ class ServiceController extends Controller {
             case 'auth':
                 $service = new AuthenticationService();
                 return $service->execute($parameters);
-                //return $service->execute(SecurityController::purifyArray($parameters,false));
             break;
             case 'catalogs':
+                if (!User::isLogged()) {
+                    return [];
+                }
+
                 $service = new CatalogsService();
+                return $service->execute($parameters);
+            break;
+            case 'patients':
+                if (!User::isLogged()) {
+                    return [];
+                }
+
+                $service = new PatientsService();
                 return $service->execute($parameters);
             break;
             default:

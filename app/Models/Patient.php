@@ -30,6 +30,10 @@ class Patient extends Model {
         return $patient;
     }
 
+    public static function getPaginatePatients ($skip = NULL, $take = NULL, $orderBy = 'name ASC') {
+        return static::all();
+    }
+
     public static function getTotal () {
         return static::all()->count();
     }
