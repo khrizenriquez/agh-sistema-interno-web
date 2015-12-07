@@ -42,7 +42,6 @@
 <script src="/js/models/catalogsService.js"></script>
 <script src="/js/controllers/catalogsController.js"></script>
 <script src="/js/protos/login.js"></script>
-<script src="/js/login.js"></script>
 
 <script src="/js/vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="/js/vendor/jtable/jquery.jtable.min.js"></script>
