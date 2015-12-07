@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Department;
@@ -42,6 +40,7 @@ class PageController extends Controller {
                 return view('profile', array('user' => $user))->with($params);*/
             break;
             case 'catalogos':
+                $params['departments'] = Department::getAllDepartments();
                 return (User::isLogged()) ? view('catalogs')->with($params) : redirect('/inicio');
             break;
             case 'pacientes':
