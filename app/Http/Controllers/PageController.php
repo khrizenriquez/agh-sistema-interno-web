@@ -28,12 +28,14 @@ class PageController extends Controller {
             $params['lastName']     = $last;
         }
 
+        if (!User::isLogged()) return view('login');
+
         switch ($page) {
             case 'inicio':
-                return (User::isLogged()) ? view('home')->with($params) : view('login');
+                return view('home')->with($params);
             break;
             case 'perfil':
-                return (User::isLogged()) ? view('profile')->with($params) : redirect('/inicio');
+                return view('profile')->with($params);
                 /*$user = User::getUser($_SESSION['ina_user']['id']);
                 $user_ext = User::join("state","state.id","=","user.state_id")->join("country","country.id","=","state.country_id")->where("user.id","=",$_SESSION['ina_user']['id'])->get(array("country.phone_ext"))->first();
                 $params['page']['ext']=$user_ext->phone_ext;
@@ -41,12 +43,12 @@ class PageController extends Controller {
             break;
             case 'catalogos':
                 $params['departments'] = Department::getAllDepartments();
-                return (User::isLogged()) ? view('catalogs')->with($params) : redirect('/inicio');
+                return view('catalogs')->with($params);
             break;
             case 'pacientes':
-                return (User::isLogged()) ? view('patients')->with($params) : redirect('/inicio');
+                return view('patients')->with($params);
             break;
-            default: 
+            default:
             break;
 
         }
