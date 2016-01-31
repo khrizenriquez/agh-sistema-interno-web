@@ -8,11 +8,11 @@ var statusOption = { 0: 'No', 1: 'Si' };
 
 function showPatientsCatalog () {
 	$('#patientsCatalog').jtable({
-        defaultSorting: 'name ASC', 
-        pageSize:       10, 
-        paging:         true, 
-        sorting:        true, 
-        title:          ' ', 
+        defaultSorting: 'name ASC',
+        pageSize:       10,
+        paging:         true,
+        sorting:        true,
+        title:          ' ',
         actions: {
             listAction: 	'/services/patients?action=patients_list',
             createAction: 	'/services/patients?action=patient_create',
@@ -31,36 +31,39 @@ function showPatientsCatalog () {
             }, gender: {
                 title: 'Género',
                 options: {
-                    0: 'Femenino', 
+                    0: 'Femenino',
                     1: 'Masculino'
                 }
+            }, birth_date: {
+                title: 'Nacimiento',
+                type: 'date'
             }, admission_date: {
-                title: 'Admisión', 
+                title: 'Admisión',
                 type: 'date'
             }, inhibitors: {
-                title: 'Inhibidores', 
+                title: 'Inhibidores',
                 options: statusOption
             }, joint_disease: {
-                title: 'Enf. articulatoría', 
+                title: 'Enf. articulatoría',
                 options: statusOption
             }, physiotherapy: {
-                title: 'Fisioterapía', 
+                title: 'Fisioterapía',
                 options: statusOption
             }, sick_relatives: {
-                title: 'Parientes enf.', 
+                title: 'Parientes enf.',
                 options: statusOption
             }, created_at: {
-                create: false, 
-                edit: false, 
+                create: false,
+                edit: false,
                 list: false,
                 sorting: false,
                 title: 'Creación'
             }, updated_at: {
-                create: false, 
-                edit: false, 
+                create: false,
+                edit: false,
                 list: false,
                 sorting: false,
-                title: 'Actualización' 
+                title: 'Actualización'
             }
         }
     });

@@ -3,15 +3,17 @@
 class PatientsService {
 
     public function execute($parameters = []) {
+        $result = [];
         if (!isset($parameters['action'])) {
-            $result = ['Result' => 'ERROR', 'Message' => 'Faltan parámetros'];
-            return json_encode($result);   
+            $result = ['Result'     => 'ERROR',
+                        'Message'   => 'Faltan parámetros'
+                    ];
+            return json_encode($result);
         }
         switch ($parameters['action']) {
             case 'patients_list':
-                $result = [];
                 if (!User::isLogged()) {
-                    $result = ['Result'     => 'ERROR', 
+                    $result = ['Result'     => 'ERROR',
                                 'Message'   => 'No esta loguedo'];
                 }
 
@@ -29,29 +31,29 @@ class PatientsService {
             break;
             case 'patient_create':
                 if (!User::isLogged()) {
-                    $result = ['Result'     => 'ERROR', 
+                    $result = ['Result'     => 'ERROR',
                                 'Message'   => 'No esta loguedo'];
                 }
 
-                extract($parameters);
-                $result = [];
+                $p      = new Patient();
+                $result = $p->patient($parameters);
 
                 return $result;
             break;
             case 'patient_update':
                 if (!User::isLogged()) {
-                    $result = ['Result'     => 'ERROR', 
+                    $result = ['Result'     => 'ERROR',
                                 'Message'   => 'No esta loguedo'];
                 }
-                $tmpArray = $parameters;
-                extract($parameters);
-                $result = [];
+
+                $p      = new Patient();
+                $result = $p->uPatient($parameters);
 
                 return $result;
             break;
             case 'patient_delete':
                 if (!User::isLogged()) {
-                    $result = ['Result'     => 'ERROR', 
+                    $result = ['Result'     => 'ERROR',
                                 'Message'   => 'No esta loguedo'];
                 }
                 extract($parameters);
@@ -60,9 +62,8 @@ class PatientsService {
                 return $result;
             break;
             default:
-                $result = [];
-                $result['Result'] = 'ERROR';
-                $result['Message'] = 'Acción no definida';
+                $result = ['Result'     => 'ERROR',
+                            'Message'   => 'Acción no definida'];
             return json_encode($result);
         }
     }
